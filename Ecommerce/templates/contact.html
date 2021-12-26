@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
@@ -9,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Groover - Online Shopping for Electronics, Apparel, Computers, Books, DVDs & more</title>
+    <title>Sparke Autoparts - Online Automation Trading Management System</title>
+    
+    
     <!-- Standard Favicon -->
     <link href="favicon.ico" rel="shortcut icon">
     <!-- Base Google Font for Web-app -->
@@ -17,21 +20,21 @@
     <!-- Google Fonts for Banners only -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
     <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="../static/css/fontawesome.min.css">
     <!-- Ion-Icons 4 -->
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
     <!-- Animate CSS -->
-    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="../static/css/animate.min.css">
     <!-- Owl-Carousel -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
     <!-- Jquery-Ui-Range-Slider -->
-    <link rel="stylesheet" href="css/jquery-ui-range-slider.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-ui-range-slider.min.css">
     <!-- Utility -->
-    <link rel="stylesheet" href="css/utility.css">
+    <link rel="stylesheet" href="../static/css/utility.css">
     <!-- Main -->
-    <link rel="stylesheet" href="css/bundle.css">
+    <link rel="stylesheet" href="../static/css/bundle.css">
 </head>
 
 <body>
@@ -56,6 +59,13 @@
                                 E-mail: contact@domain.com
                             </a>
                         </li>
+
+                        <li>
+                            <a href="{% url 'account' %}">
+                                
+                                Seller Center
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <nav>
@@ -66,22 +76,22 @@
                             </a>
                             <ul class="g-dropdown" style="width:200px">
                                 <li>
-                                    <a href="cart.html">
+                                    <a href="{% url 'cart' %}">
                                         <i class="fas fa-cog u-s-m-r-9"></i>
                                         My Cart</a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.html">
+                                    <a href="{% url 'wishlist' %}">
                                         <i class="far fa-heart u-s-m-r-9"></i>
                                         My Wishlist</a>
                                 </li>
                                 <li>
-                                    <a href="checkout.html">
+                                    <a href="{% url 'checkout' %}">
                                         <i class="far fa-check-circle u-s-m-r-9"></i>
                                         Checkout</a>
                                 </li>
                                 <li>
-                                    <a href="account.html">
+                                    <a href="{% url 'account' %}">
                                         <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
                                         Login / Signup</a>
                                 </li>
@@ -111,8 +121,8 @@
                 <div class="row clearfix align-items-center">
                     <div class="col-lg-3 col-md-9 col-sm-6">
                         <div class="brand-logo text-lg-center">
-                            <a href="home.html">
-                                <img src="FinalLogo2.png" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
                             </a>
                         </div>
                     </div>
@@ -152,12 +162,12 @@
                         <nav>
                             <ul class="mid-nav g-nav">
                                 <li class="u-d-none-lg">
-                                    <a href="home.html">
+                                    <a href="{% url 'home' %}">
                                         <i class="ion ion-md-home u-c-brand"></i>
                                     </a>
                                 </li>
                                 <li class="u-d-none-lg">
-                                    <a href="wishlist.html">
+                                    <a href="{% url 'wishlist' %}">
                                         <i class="far fa-heart"></i>
                                     </a>
                                 </li>
@@ -181,7 +191,7 @@
                 <button type="button" class="button fas fa-search" id="responsive-search"></button>
             </div>
             <div class="fixed-responsive-wrapper">
-                <a href="wishlist.html">
+                <a href="{% url 'wishlist' %}">
                     <i class="far fa-heart"></i>
                     <span class="fixed-item-counter">3</span>
                 </a>
@@ -198,7 +208,7 @@
                 <ul class="mini-cart-list">
                     <li class="clearfix">
                         <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="gear-443676_960_720.jpg" alt="Product">
+                            <img src="{% static 'image/gear-443676_960_720.jpg' %}" alt="Product">
                             <span class="mini-item-name">Partial Engine Assembly</span>
                             <span class="mini-item-price">RM500.00</span>
                             <span class="mini-item-quantity"> x 1 </span>
@@ -206,23 +216,23 @@
                     </li>
                     <li class="clearfix">
                         <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="gasket.jpg" alt="Product">
+                            <img src="{% static 'gasket.jpg' %}" alt="Product">
                             <span class="mini-item-name">Gasket</span>
                             <span class="mini-item-price">RM55.00</span>
                             <span class="mini-item-quantity"> x 1 </span>
                         </a>
                     </li>
                     <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="FRONT AXLE ARM & STEERING KNUCKLE.jpg" alt="Product">
+                        <a href="{% url 'single-product' %}">
+                            <img src="{% static 'FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
                             <span class="mini-item-name">Front Axle Arm</span>
                             <span class="mini-item-price">RM150.00</span>
                             <span class="mini-item-quantity"> x 1 </span>
                         </a>
                     </li>
                     <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="HEADLAMP.jpg" alt="Product">
+                        <a href="{% url 'single-product' %}">
+                            <img src="{% static 'HEADLAMP.jpg' %} " alt="Product">
                             <span class="mini-item-name">Headlamp</span>
                             <span class="mini-item-price">RM230.00</span>
                             <span class="mini-item-quantity"> x 1 </span>
@@ -234,20 +244,24 @@
                     <span class="mini-total-price float-right">RM935.00</span>
                 </div>
                 <div class="mini-action-anchors">
-                    <a href="cart.html" class="cart-anchor">View Cart</a>
-                    <a href="checkout.html" class="checkout-anchor">Checkout</a>
+                    <a href="{% url 'cart' %}" class="cart-anchor">View Cart</a>
+                    <a href="{% url 'checkout' %}" class="checkout-anchor">Checkout</a>
                 </div>
             </div>
         </div>
         <!-- Mini Cart /- -->
         <!-- Bottom-Header -->
+
+       
+          
         <div class="full-layer-bottom-header">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-3">
-                        <div class="v-menu">
+                        <div class="v-menu "> 
                             <span class="v-title">
                                 <i class="ion ion-md-menu"></i>
+                                
                                 All Categories
                                 <i class="fas fa-angle-down"></i>
                             </span>
@@ -255,7 +269,7 @@
                                 <div class="v-wrapper">
                                     <ul class="v-list animated fadeIn">
                                         <li class="js-backdrop">
-                                            <a href="shop-v1-root-category.html">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
                                               
                                                 ENGINE
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -289,8 +303,8 @@
                                             </div>
                                         </li>
                                         <li class="js-backdrop">
-                                            <a href="shop-v1-root-category.html">
-                                              
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/ ">
+                                            
                                                 FUEL SYSTEM
                                                 <i class="ion ion-ios-arrow-forward"></i>
                                             </a>
@@ -308,7 +322,7 @@
                                                                         <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1501/">FUEL PUMP</a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="shop-v3-sub-sub-category.html">FUEL TANK
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/2211/">FUEL TANK
                                                                         </a>
                                                                     </li>
                                                                     <li>
@@ -322,7 +336,7 @@
                                                     <div class="col-lg-4">
                                                         <ul class="v-level-2">
                                                             <li>
-                                                                <a href="shop-v2-sub-category.html">
+                                                                <a href="{% url 'shopv2subcategory' %}">
                                                                 </a>
                                                                 
                                                     </div>
@@ -331,7 +345,7 @@
                                             </div>
                                         </li>
                                         <li class="js-backdrop">
-                                            <a href="shop-v1-root-category.html">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
                                                
                                                 TOOLS
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -343,14 +357,14 @@
                                                         <ul class="v-level-2">
                                                           
                                                                     <li>
-                                                                        <a href="shop-v3-sub-sub-category.html">WATER PUMP
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1601/">WATER PUMP
                                                                         </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="shop-v3-sub-sub-category.html">V-BELT                                                                        </a>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1605/">V-BELT                                                                        </a>
                                                                     </li>
                                                                     <li>
-                                                                        <a href="shop-v3-sub-sub-category.html">AIR CLEANER
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1703/">AIR CLEANER
                                                                         </a>
                                                                     </li>
                                                                    
@@ -368,7 +382,7 @@
                                         </li>
                                       
                                         <li class="js-backdrop">
-                                            <a href="shop-v1-root-category.html">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/">
                                                
                                                 TRANSMISSION
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -418,7 +432,7 @@
                                             </div>
                                         </li>
                                         <li>
-                                            <a href="shop-v1-root-category.html">
+                                            <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/">
                                                 
                                                 ELECTRICS
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -466,8 +480,8 @@
                                                 
                                             </a>
                                         </li>
-                                        <li class="v-none" style="display: none">
-                                            <a href="shop-v1-root-category.html">
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
                                                
                                                 BODY
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -510,8 +524,8 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="v-none" style="display: none">
-                                            <a href="shop-v1-root-category.html">
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
                                                
                                                 INTERIOR
                                                 <i class="ion ion-ios-arrow-forward"></i>
@@ -550,12 +564,7 @@
                                                 </div>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="v-more">
-                                                <i class="ion ion-md-add"></i>
-                                                <span>View More</span>
-                                            </a>
-                                        </li>
+                                       
                                     </ul>
                                 </div>
                             </nav>
@@ -564,15 +573,11 @@
                     <div class="col-lg-9">
                         <ul class="bottom-nav g-nav u-d-none-lg">
                             <li>
-                                <a href="home.html">HOME
+                                <a href="{% url 'home' %}">HOME
                                     
                                 </a>
                             </li>
-                            <li>
-                                <a href="custom-deal-page.html">SELLER ACCOUNT
-                                    <span class="superscript-label-hot">HOT</span>
-                                </a>
-                            </li>
+                            
                            
                             <li class="mega-position">
                                 <a>PAGES
@@ -582,104 +587,61 @@
                                     <ul>
                                         <li class="menu-title">Home & Static Pages</li>
                                         <li>
-                                            <a href="home.html" class="u-c-brand">Home</a>
+                                            <a href="{% url 'home' %}" class="u-c-brand">Home</a>
                                         </li>
                                         <li>
-                                            <a href="about.html">About</a>
+                                            <a href="{% url 'about' %}">About</a>
                                         </li>
                                         <li>
-                                            <a href="contact.html">Contact</a>
+                                            <a href="{% url 'contact' %}">Contact</a>
                                         </li>
+                                    
+                                       
                                         <li>
-                                            <a href="faq.html">FAQ</a>
+                                            <a href="{% url 'terms' %}">Terms & Conditions</a>
                                         </li>
-                                        <li>
-                                            <a href="store-directory.html">Store Directory</a>
-                                        </li>
-                                        <li>
-                                            <a href="terms-and-conditions.html">Terms & Conditions</a>
-                                        </li>
-                                        <li>
-                                            <a href="404.html">404</a>
-                                        </li>
-                                        <li class="menu-title">Single Product Page</li>
-                                        <li>
-                                            <a href="single-product.html">Single Product Fullwidth</a>
-                                        </li>
-                                        <li class="menu-title">Blog</li>
-                                        <li>
-                                            <a href="blog.html">Blog Page</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-detail.html">Blog Details</a>
-                                        </li>
+                                    
+                                      
+                                      
+                                       
                                     </ul>
                                     <ul>
                                         <li class="menu-title">Ecommerce Pages</li>
+                                       
+                                      
                                         <li>
-                                            <a href="shop-v2-sub-category.html">Shop</a>
+                                            <a href="{% url 'checkout' %}">Checkout</a>
                                         </li>
                                         <li>
-                                            <a href="cart.html">Cart</a>
+                                            <a href="{% url 'account' %}">My Account</a>
                                         </li>
                                         <li>
-                                            <a href="checkout.html">Checkout</a>
+                                            <a href="{% url 'wishlist' %}">Wishlist</a>
                                         </li>
                                         <li>
-                                            <a href="account.html">My Account</a>
+                                            <a href="{% url 'track' %}">Track your Order</a>
                                         </li>
-                                        <li>
-                                            <a href="wishlist.html">Wishlist</a>
+                                       
+                                       
+                                        <li class="menu-title">
+                                            <a href="{% url 'cart' %}">Cart </a>
                                         </li>
-                                        <li>
-                                            <a href="track-order.html">Track your Order</a>
-                                        </li>
-                                        <li class="menu-title">Cart Variations</li>
-                                        <li>
-                                            <a href="cart-empty.html">Cart Ver 1 Empty</a>
-                                        </li>
-                                        <li>
-                                            <a href="cart.html">Cart Ver 2 Full</a>
-                                        </li>
-                                        <li class="menu-title">Wishlist Variations</li>
-                                        <li>
-                                            <a href="wishlist-empty.html">Wishlist Ver 1 Empty</a>
-                                        </li>
-                                        <li>
-                                            <a href="wishlist.html">Wishlist Ver 2 Full</a>
+                                       
+                                        <li class="menu-title">
+                                            <a href="{% url 'wishlist' %}">Wishlist </a>
                                         </li>
                                     </ul>
                                     <ul>
-                                        <li class="menu-title">Shop Variations</li>
-                                        <li>
-                                            <a href="shop-v1-root-category.html">Shop Ver 1 Root Category</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-v2-sub-category.html">Shop Ver 2 Sub Category</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-v3-sub-sub-category.html">Shop Ver 3 Sub Sub Category</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-v4-filter-as-category.html">Shop Ver 4 Filter as Category</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-v5-product-not-found.html">Shop Ver 5 Product Not Found</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-v6-search-results.html">Shop Ver 6 Search Results</a>
-                                        </li>
+                                       
                                         <li class="menu-title">My Account Variation</li>
                                         <li>
-                                            <a href="lost-password.html">Lost Your Password ?</a>
+                                            <a href="{% url 'lost-password' %}">Lost Your Password ?</a>
                                         </li>
-                                        <li class="menu-title">Checkout Variation</li>
-                                        <li>
-                                            <a href="confirmation.html">Checkout Confirmation</a>
-                                        </li>
+                                       
+                                        
                                         <li class="menu-title">Custom Deals Page</li>
                                         <li>
-                                            <a href="custom-deal-page.html">Custom Deal Page</a>
+                                            <a href="{% url 'custom' %}">Custom Deal Page</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -693,66 +655,106 @@
         <!-- Bottom-Header /- -->
     </header>
     <!-- Header /- -->
-        <!-- Main-Slider -->
-        <div class="default-height ph-item">
-            <div class="slider-main owl-carousel">
-                <div class="bg-image one">
-                    <div class="slide-content slide-animation">
-                        <h1>ENGINE</h1>
-                        <img src="hd1.jpg" style="width:100%">
-                    </div>
+    <!-- Main-Slider -->
+    
+    <div class="default-height ph-item">
+        <div class="slider-main owl-carousel">
+            <div class="bg-image one">
+                <div class="slide-content slide-animation">
+                    <h1>ENGINE</h1>
+                    <img src="{% static 'image/hd1.jpg' %}" style="width:100%">
                 </div>
+            </div>
+        
+         
+        
             
-                <div class="bg-image two" >
-                    <div class="slide-content slide-animation">
-                        <h1>STOCK</h1>
-                        <img src="hd2.jpg" style="width:100%">
-                    </div>
-                </div>
-                <div class="bg-image three">
-                    <div class="slide-content slide-animation">
-                        <h1>STOCK</h1>
-                        <img src="wallpaper5.jpg" style="width:100%">
-                    </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <!-- Main-Slider /- -->
-    <!-- Terms-&-Conditions-Page -->
-    <div class="page-term u-s-p-t-80">
-        <div class="container">
-            <div class="term u-s-m-b-50">
-                <h1>Terms & Conditions</h1>
-                <h1>Please read our “Terms & Conditios” very carefully and learn our all rules.</h1>
-                <p>These rules were modified on 18 NOVEMBER 2020.</p>
-            </div>
-            <ul class="term-list">
-                <li>
-                    Dealers must use only one account to purchase the car autoparts from Sparke Autoparts E-Commerce System.
-                </li>
-                <li>
-                   The personal details must be valid. Fake details or account will be terminated as soon as possible. 
-                </li>
-                
         </div>
     </div>
-    <!-- Terms-&-Conditions-Page /- -->
+    <!-- Main-Slider /- -->
+    <!-- Contact-Page -->
+    <div class="page-contact u-s-p-t-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="touch-wrapper">
+                        <h1 class="contact-h1">Get In Touch With Us</h1>
+                        <form>
+                            <div class="group-inline u-s-m-b-30">
+                                <div class="group-1 u-s-p-r-16">
+                                    <label for="contact-name">Your Name
+                                        <span class="astk">*</span>
+                                    </label>
+                                    <input type="text" id="contact-name" class="text-field" placeholder="Name">
+                                </div>
+                                <div class="group-2">
+                                    <label for="contact-email">Your Email
+                                        <span class="astk">*</span>
+                                    </label>
+                                    <input type="text" id="contact-email" class="text-field" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="u-s-m-b-30">
+                                <label for="contact-subject">Subject
+                                    <span class="astk">*</span>
+                                </label>
+                                <input type="text" id="contact-subject" class="text-field" placeholder="Subject">
+                            </div>
+                            <div class="u-s-m-b-30">
+                                <label for="contact-message">Message:</label>
+                                <textarea class="text-area" id="contact-message"></textarea>
+                            </div>
+                            <div class="u-s-m-b-30">
+                                <button type="submit" class="button button-outline-secondary">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="information-about-wrapper">
+                        <h1 class="contact-h1">Information About Us</h1>
+                        <p>
+                            Sparke Autoparts is the premier online autoparts trading platform in Malaysia serving both the passenger and commercial vehicle markets.
+                            Through our extensive supplier network, we take out the hassle of comparing the best market prices and pass on the savings to you.
+                            With up to 95% brand and product coverage in body, mechanical and maintenance parts, as well as varying qualities (Original, OEM, REM and Used) to suit every budget, we’re the one-stop shop for All The Parts You Need.
+                        </p>
+                    </div>
+                    <div class="contact-us-wrapper">
+                        <h1 class="contact-h1">Contact Us</h1>
+                        <div class="contact-material u-s-m-b-16">
+                            <h6>Location</h6>
+                            <span>One Logistics Hub, No.1, Persiaran Sungai Hampar</span>
+                            <span>Section 32, 40460 Shah Alam, Selangor</span>
+                        </div>
+                        <div class="contact-material u-s-m-b-16">
+                            <h6>Email</h6>
+                            <span>contact@domain.com</span>
+                        </div>
+                        <div class="contact-material u-s-m-b-16">
+                            <h6>Telephone</h6>
+                            <span>+60123456789</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="u-s-p-t-80">
+            <div id="map"></div>
+        </div>
+    </div>
+    <!-- Contact-Page /- -->
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <!-- Outer-Footer -->
             <div class="outer-footer-wrapper u-s-p-y-80">
-                <h6>
-                    For special offers and other discount information
-                </h6>
+                
                 <h1>
-                    Subscribe to our Newsletter
+                    To order the Car Parts Customers 
                 </h1>
-                <p>
-                    Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
-                </p>
+                <h4>
+                    Register and Login 
+                </h4>
                 <form class="newsletter-form">
                     <label class="sr-only" for="newsletter-field">Enter your Email</label>
                     <input type="text" id="newsletter-field" placeholder="Your Email Address">
@@ -768,13 +770,13 @@
                             <h6>CUSTOMER SERVICE</h6>
                             <ul>
                                 <li>
-                                    <a href="faq.html">FAQs</a>
+                                    <a href="{% url 'faq' %}">FAQs</a>
                                 </li>
                                 <li>
-                                    <a href="track-order.html">Track Order</a>
+                                    <a href="{% url 'track' %}">Track Order</a>
                                 </li>
                                 <li>
-                                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                                    <a href="{% url 'terms' %}">Terms & Conditions</a>
                                 </li>
                             </ul>
                         </div>
@@ -784,13 +786,13 @@
                             <h6>COMPANY</h6>
                             <ul>
                                 <li>
-                                    <a href="home.html">Home</a>
+                                    <a href="{% url 'home' %}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="about.html">About</a>
+                                    <a href="{% url 'about' %}">About</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="{% url 'contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -800,13 +802,13 @@
                             <h6>INFORMATION</h6>
                             <ul>
                                 <li>
-                                    <a href="store-directory.html">Categories Directory</a>
+                                    <a href="{% url 'store' %}">Categories Directory</a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.html">My Wishlist</a>
+                                    <a href="{% url 'wishlist' %}">My Wishlist</a>
                                 </li>
                                 <li>
-                                    <a href="cart.html">My Cart</a>
+                                    <a href="{% url 'cart' %}">My Cart</a>
                                 </li>
                             </ul>
                         </div>
@@ -817,12 +819,12 @@
                             <ul>
                                 <li>
                                     <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                    <span>819 Sugar Camp Road, West Concord, MN 55985</span>
+                                    <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
                                 </li>
                                 <li>
-                                    <a href="tel:+923086561801">
+                                    <a href="tel:+60123456789">
                                         <i class="fas fa-phone u-s-m-r-9"></i>
-                                        <span>+111-444-989</span>
+                                        <span>+60123456789</span>
                                     </a>
                                 </li>
                                 <li>
@@ -879,8 +881,8 @@
                         </li>
                     </ul>
                 </div>
-                <p class="copyright-text">Copyright &copy; 2018
-                    <a href="home.html">Groover</a> All Right Reserved</p>
+                <p class="copyright-text">Copyright &copy; 2021
+                    <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
             </div>
         </div>
         <!-- Bottom-Footer /- -->
@@ -910,6 +912,8 @@
     <!-- Responsive-Search /- -->
 </div>
 <!-- app /- -->
+<!-- Google-Maps -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-MO9uPLS-ApTqYs0FpYdVG8cFwdq6apw"></script>
 <!--[if lte IE 9]>
 <div class="app-issue">
     <div class="vertical-center">
@@ -924,6 +928,14 @@
 } </style>
 <![endif]-->
 <!-- NoScript -->
+<style>
+    form.form-searchbox {
+        width: 80%;
+        margin-left: 100px;
+    }
+    
+</style>
+    
 <noscript>
     <div class="app-issue">
         <div class="vertical-center">
@@ -933,11 +945,7 @@
             </div>
         </div>
     </div>
-    <style>
-    #app {
-        display: none;
-    }
-    </style>
+    
 </noscript>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
@@ -951,32 +959,32 @@ ga('send', 'pageview')
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 <!-- Modernizr-JS -->
-<script type="text/javascript" src="js/vendor/modernizr-custom.min.js"></script>
+<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
 <!-- NProgress -->
-<script type="text/javascript" src="js/nprogress.min.js"></script>
+<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
 <!-- jQuery -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
 <!-- Bootstrap JS -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 <!-- Popper -->
-<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="../static/js/popper.min.js"></script>
 <!-- ScrollUp -->
-<script type="text/javascript" src="js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
 <!-- Elevate Zoom -->
-<script type="text/javascript" src="js/jquery.elevatezoom.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
 <!-- jquery-ui-range-slider -->
-<script type="text/javascript" src="js/jquery-ui.range-slider.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
 <!-- jQuery Slim-Scroll -->
-<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
 <!-- jQuery Resize-Select -->
-<script type="text/javascript" src="js/jquery.resize-select.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
 <!-- jQuery Custom Mega Menu -->
-<script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
 <!-- jQuery Countdown -->
-<script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
 <!-- Owl Carousel -->
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
 <!-- Main -->
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="../static/js/app.js"></script>
 </body>
 </html>

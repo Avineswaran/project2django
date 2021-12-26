@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Records</title>
+</head>
+<body>
+    <h1>Sparke Autoparts Customer</h1>
+
+    <table>
+        <tr>
+            <th>phoneNo</th>
+            <th>dealerID</th>
+            <th>adminID</th>
+            <th>name</th>
+            <th>email</th>
+            <th>streetAddr</th>
+            <th>city</th>
+            <th>postalCode</th>
+            <th>state</th>
+
+
+        </tr>
+        {% for getdata in customer%}
+<tr>
+    <td>{{getdata.phoneNo}}</td>
+    <td>{{getdata.dealerID}}</td>
+    <td>{{getdata.adminID}}</td>
+    <td>{{getdata.name}}</td>
+    <td>{{getdata.email}}</td>
+    <td>{{getdata.streetAddr}}</td>
+    <td>{{getdata.city}}</td>
+    <td>{{getdata.postalCode}}</td>
+    <td>{{getdata.state}}</td>
+    
+</tr>
+{% end for %}
+    </table>
+</body>
+</html>
