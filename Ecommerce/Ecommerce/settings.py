@@ -38,13 +38,38 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Sparke',
-   
-   
+    'Sparke.apps.SparkeConfig',
+    'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.contrib.sites',
+    
     
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_REQUIRED = True 
+ACCOUNT_EMAIL_VERIFICATION = True 
+LOGIN_REDIRECT_URL = "/myaccount"
+LOGOUT_REDIRECT_URL = "/home"
+
+ACCOUNT_FORMS = {
+    'signup': 'Sparke.forms.CustomSignupForm',
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,6 +99,10 @@ TEMPLATES = [
     },
 ]
 
+
+
+SITE_ID = 1 
+
 WSGI_APPLICATION = 'Ecommerce.wsgi.application'
 
 
@@ -86,7 +115,7 @@ DATABASES = {
         'NAME': 'sparke',
         'USER':'root',
         'PASSWORD':'',
-        'HOST':'127.0.0.1',
+        'HOST':'localhost',
         'PORT': '3306',
 
 
@@ -136,8 +165,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

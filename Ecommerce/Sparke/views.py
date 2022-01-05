@@ -1,5 +1,10 @@
-from django.shortcuts import render,redirect
-from django.contrib.auth.forms import UserCreationForm
+from allauth.account.forms import SignupForm
+from django.shortcuts import render,redirect 
+from django.http.response import HttpResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.views import LoginView
+from .models import Part 
+
 
 from django.http import HttpResponse
 
@@ -15,22 +20,28 @@ def about(request):
     return render(request, "about.html")
 
 def account(request):
-    if request.method == "POST":
-        form=UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home_url')
+    return render(request, "account.html")
 
-    else:
-     form=UserCreationForm()
-    return render(request, "account.html")
-    return render(request, "account.html")
+def myaccount(request):
+    return render(request, "myaccount.html")
 
 def blog(request):
     return render(request, "blog.html")
+
+def base1(request):
+    return render(request, "base1.html")
+
+def seller(request):
+    return render(request, "seller.html")
     
 def cart(request):
     return render(request, "cart.html")
+
+def update(request):
+    return render(request, "update.html")
+
+def signup1(request):
+    return render(request, "signup1.html")
 
 def blogdetail(request):
     return render(request, "blog-detail.html")
@@ -102,9 +113,42 @@ def homehtml(request):
     return render(request, "homehtml.html")
 
 def singleproduct(request):
-    return render(request, "single-product.html")
+    return render(request, "singleproduct.html")
 
 def login(request):
     return render(request, "login.html")
 
+def base(request):
+    return render(request, "base.html")
 
+def signup(request):
+    return render(request, "signup.html")
+
+def account(request):
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/home")
+    else:
+        form = SignupForm()
+    return render(request, "account.html",{"form":form})
+
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('/')
+    else:
+        form = SignupForm()
+    return render
+
+
+def PartTest(request):
+    parts = Part.objects.all()
+    return render(request,"PartTest.html",{'parts':parts})

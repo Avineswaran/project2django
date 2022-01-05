@@ -26,7 +26,11 @@ urlpatterns = [
     path('',views.home, name='home' ),    
     path('home',views.home, name='home' ),
     path('home-html',views.homehtml, name='homehtml' ),
-    path('account',views.account, name='account' ), 
+    path('account/',views.account, name='account' ),
+    path('myaccount/',views.myaccount, name='myaccount' ),
+    path('login',views.login, name='login' ), 
+    path('signup',views.signup, name='signup' ), 
+    path('seller',views.seller, name='seller' ), 
     path('about',views.about, name='about' ), 
     path('contact',views.contact, name='contact' ),    
     path('blog',views.blog, name='blog'  ),
@@ -45,8 +49,11 @@ urlpatterns = [
     path('checkout', views.checkout, name='checkout' ),
     path('custom', views.custom, name='custom' ),
     path('confirmation', views.confirmation, name='confirmation' ),
-    path('single-product', views.singleproduct, name='single-product' ),
-    
+    path('singleproduct', views.singleproduct, name='singleproduct' ),
+    path('base1', views.base1, name='base1' ),
+    path('update', views.update, name='update' ),
+    path('signup1', views.signup1, name='signup1' ),
+    path('',include('Sparke.urls')),
 
 
     path('shopv1rootcategory', views.shopv1rootcategory,name='shopv1rootcategory'),
@@ -55,7 +62,7 @@ urlpatterns = [
     path('shopv4filterascategory', views.shopv4filterascategory,name='shopv4filterascategory'),
     path('shopv5productnotfound', views.shopv5productnotfound,name='shopv5productnotfound'),
     path('shopv6searchresults', views.shopv6searchresults,name='shopv6searchresults'),
+    path('PartTest',views.PartTest, name='PartTest'),
 
-    path('', include("django.contrib.auth.urls")),
-  
+    path('',include("allauth.urls")),
 ]

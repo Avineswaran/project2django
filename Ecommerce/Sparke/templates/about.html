@@ -1,0 +1,982 @@
+{% load static %}
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Sparke Autoparts - Online Automation Trading Management System</title>
+    
+    
+    <!-- Standard Favicon -->
+    <link href="favicon.ico" rel="shortcut icon">
+    <!-- Base Google Font for Web-app -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- Google Fonts for Banners only -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <!-- Font Awesome 5 -->
+    <link rel="stylesheet" href="../static/css/fontawesome.min.css">
+    <!-- Ion-Icons 4 -->
+    <link rel="stylesheet" href="../static/css/ionicons.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="../static/css/animate.min.css">
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="../static/css/owl.carousel.min.css">
+    <!-- Jquery-Ui-Range-Slider -->
+    <link rel="stylesheet" href="../static/css/jquery-ui-range-slider.min.css">
+    <!-- Utility -->
+    <link rel="stylesheet" href="../static/css/utility.css">
+    <!-- Main -->
+    <link rel="stylesheet" href="../static/css/bundle.css">
+</head>
+
+<body>
+
+<!-- app -->
+<div id="app">
+    <!-- Header -->
+    <header>
+         <!-- Top-Header -->
+         <div class="full-layer-outer-header">
+            <div class="container clearfix">
+                <nav>
+                    <ul class="primary-nav g-nav">
+                        <li>
+                            <a href="tel:+60123456789">
+                                <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
+                                Telephone:+60123456789</a>
+                        </li>
+                        <li>
+                            <a href="mailto:contact@domain.com">
+                                <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
+                                E-mail: contact@domain.com
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'seller' %}">
+                                
+                                Seller Center
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="secondary-nav g-nav">
+                        <li>
+                            <a>My Account
+                                <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                            </a>
+                            <ul class="g-dropdown" style="width:200px">
+                                <li>
+                                    <a href="{% url 'cart' %}">
+                                        <i class="fas fa-cog u-s-m-r-9"></i>
+                                        My Cart</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'wishlist' %}">
+                                        <i class="far fa-heart u-s-m-r-9"></i>
+                                        My Wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'account_signup' %}">
+                                        <i class="far fa-check-circle u-s-m-r-9"></i>
+                                        Register</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'account_login' %}">
+                                        <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
+                                        Login </a>
+                                </li>
+                            </ul>
+                        </li>
+                        >
+                        <li>
+                            <a>ENG
+                                <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                            </a>
+                            <ul class="g-dropdown" style="width:70px">
+                                <li>
+                                    <a href="#" class="u-c-brand">ENG</a>
+                                </li>
+                                <li>
+                                    <a href="#">MALAY</a>
+                                </li>
+                            </ul>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Top-Header /- -->
+        <!-- Mid-Header -->
+        <div class="full-layer-mid-header">
+            <div class="container">
+                <div class="row clearfix align-items-center">
+                    <div class="col-lg-3 col-md-9 col-sm-6">
+                        <div class="brand-logo text-lg-center">
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 u-d-none-lg">
+                        <form class="form-searchbox" action="https://toyota.epc-data.com/vellfire/ggh25w/63454/">
+                            <label class="sr-only" for="search-landscape">Search</label>
+                            <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
+                            <div class="select-box-position">
+                                <div class="select-box-wrapper select-hide">
+                                    <label class="sr-only" for="select-category">Choose parts Category</label>
+                                    <select class="select-box" id="select-category">
+                                        <option selected="selected" value="">
+                                            All
+                                        </option>
+                                        <option value="">Engine</option>
+                                        <option value="">Audio, Navigation, Electronic Systems </option>
+                                        <option value="">Automatic transmission 
+                                        <option value="">Brakes
+                                        </option>
+                                        <option value="">Communication System
+                                        </option>
+                                        <option value="">Exhaust system                                    
+                                        </option>
+                                        <option value="">Radiator
+                                        </option>
+                                        <option value="">Steering
+                                        </option>
+                                        <option value="">Wheels
+
+                                    </select>
+                                </div>
+                            </div>
+                            <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
+                        </form>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <nav>
+                            <ul class="mid-nav g-nav">
+                                <li class="u-d-none-lg">
+                                    <a href="{% url 'home' %}">
+                                        <i class="ion ion-md-home u-c-brand"></i>
+                                    </a>
+                                </li>
+                                <li class="u-d-none-lg">
+                                    <a href="{% url 'wishlist' %}">
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="mini-cart-trigger">
+                                        <i class="ion ion-md-basket"></i>
+                                        <span class="item-counter">4</span>
+                                        <span class="item-price">RM935.00</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mid-Header /- -->
+        <!-- Responsive-Buttons -->
+        <div class="fixed-responsive-container">
+            <div class="fixed-responsive-wrapper">
+                <button type="button" class="button fas fa-search" id="responsive-search"></button>
+            </div>
+            <div class="fixed-responsive-wrapper">
+                <a href="{% url 'wishlist' %}">
+                    <i class="far fa-heart"></i>
+                    <span class="fixed-item-counter">3</span>
+                </a>
+            </div>
+        </div>
+        <!-- Responsive-Buttons /- -->
+        <!-- Mini Cart -->
+        <div class="mini-cart-wrapper">
+            <div class="mini-cart">
+                <div class="mini-cart-header">
+                    YOUR CART
+                    <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
+                </div>
+                <ul class="mini-cart-list">
+                    <li class="clearfix">
+                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
+                            <img src="{% static 'image/gear-443676_960_720.jpg' %}" alt="Product">
+                            <span class="mini-item-name">Partial Engine Assembly</span>
+                            <span class="mini-item-price">RM500.00</span>
+                            <span class="mini-item-quantity"> x 1 </span>
+                        </a>
+                    </li>
+                    <li class="clearfix">
+                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
+                            <img src="{% static 'gasket.jpg' %}" alt="Product">
+                            <span class="mini-item-name">Gasket</span>
+                            <span class="mini-item-price">RM55.00</span>
+                            <span class="mini-item-quantity"> x 1 </span>
+                        </a>
+                    </li>
+                    <li class="clearfix">
+                        <a href="{% url 'single-product' %}">
+                            <img src="{% static 'FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
+                            <span class="mini-item-name">Front Axle Arm</span>
+                            <span class="mini-item-price">RM150.00</span>
+                            <span class="mini-item-quantity"> x 1 </span>
+                        </a>
+                    </li>
+                    <li class="clearfix">
+                        <a href="{% url 'single-product' %}">
+                            <img src="{% static 'HEADLAMP.jpg' %} " alt="Product">
+                            <span class="mini-item-name">Headlamp</span>
+                            <span class="mini-item-price">RM230.00</span>
+                            <span class="mini-item-quantity"> x 1 </span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="mini-shop-total clearfix">
+                    <span class="mini-total-heading float-left">Total:</span>
+                    <span class="mini-total-price float-right">RM935.00</span>
+                </div>
+                <div class="mini-action-anchors">
+                    <a href="{% url 'cart' %}" class="cart-anchor">View Cart</a>
+                    <a href="{% url 'checkout' %}" class="checkout-anchor">Checkout</a>
+                </div>
+            </div>
+        </div>
+        <!-- Mini Cart /- -->
+        <!-- Bottom-Header -->
+
+       
+          
+        <div class="full-layer-bottom-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3">
+                        <div class="v-menu "> 
+                            <span class="v-title">
+                                <i class="ion ion-md-menu"></i>
+                                
+                                All Categories
+                                <i class="fas fa-angle-down"></i>
+                            </span>
+                            <nav>
+                                <div class="v-wrapper">
+                                    <ul class="v-list animated fadeIn">
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
+                                              
+                                                ENGINE
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                           
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1901/">IGNITION COIL & SPARK PLUG</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1708/">VACUUM PIPING</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1904/">STARTER</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1101/">PARTIAL ENGINE ASSEMBLY
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                        
+                                                    </div>
+                                                    
+                                                   
+                                                </div>
+                                               
+                                            </div>
+                                        </li>
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/ ">
+                                            
+                                                FUEL SYSTEM
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                           
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/2211/">FUEL INJECTION SYSTEM</a>
+                                                                    </li>
+                                                                  
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1501/">FUEL PUMP</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/2211/">FUEL TANK
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="shop-v3-sub-sub-category.html">FUEL GAUZE
+                                                                    </li>
+                                                                  
+                                                                </ul>
+                                                         
+                                                    </div>
+                                                   
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                            <li>
+                                                                <a href="{% url 'shopv2subcategory' %}">
+                                                                </a>
+                                                                
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </li>
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
+                                               
+                                                TOOLS
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                          
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1601/">WATER PUMP
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1605/">V-BELT                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1703/">AIR CLEANER
+                                                                        </a>
+                                                                    </li>
+                                                                   
+                                                                    
+                                                                </ul>
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!-- Remember layer image should be place on empty space and its not overlap your list items because user could not read your list items. -->
+                                                <div class="v-image" style="bottom: 0;right: -25px">
+                                                   
+                                                </div>
+                                            </div>
+                                        </li>
+                                      
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/">
+                                               
+                                                TRANSMISSION
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                            
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/3503/">TRANSMISSION CASE & OIL PAN (ATM)
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/3501/">TRANSAXLE OR TRANSMISSION ASSY & GASKET KIT (ATM)
+                                                                        </a>
+                                                                    </li>
+                                                                                                                                    
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/4303/">FRONT AXLE HUB
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/4803/">FRONT SPRING & SHOCK ABSORBER
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/4703/"> BRAKE BOOSTER & VACUUM TUBE
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/4707/">REAR DISC BRAKE CALIPER & DUST COVER
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/4708/">BRAKE TUBE & CLAMP
+                                                                        </a>
+                                                                    </li>
+                                                               
+                                                        </ul>
+                                                    </div>
+                                                   
+                                                </div>
+                                                <!-- Remember layer image should be place on empty space and its not overlap your list items because user could not read your list items. -->
+                                               
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/">
+                                                
+                                                ELECTRICS
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                            
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8201/">BATTERY & BATTERY CABLE
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8121/">INTERIOR LAMP
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8421/">AIR BAG
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8611/">HORN
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8714/">HEATING & AIR CONDITIONING - COOLER UNIT
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8414/">ABS & VSC
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/8424/">ANTI-THEFT DEVICE
+                                                                        </a>
+                                                                    </li>
+                                                                    
+                                                              
+                                                        </ul>
+                                                    </div>
+                                                   
+                                                </div>
+                                                
+                                            </a>
+                                        </li>
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
+                                               
+                                                BODY
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                           
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/6151/">SIDE MEMBER
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/5252/">FRONT BUMPER & BUMPER STAY
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/5253/">REAR BUMPER & BUMPER STAY
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/6755/">REAR DOOR PANEL & GLASS
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/6152/"> SIDE WINDOW
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/body/6761/">BACK DOOR PANEL & GLASS
+                                                                        </a>
+                                                                    </li>
+                                                                  
+                                                               
+                                                        </ul>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="js-backdrop">
+                                            <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
+                                               
+                                                INTERIOR
+                                                <i class="ion ion-ios-arrow-forward"></i>
+                                            </a>
+                                            <button class="v-button ion ion-md-add"></button>
+                                            <div class="v-drop-right" style="width: 700px;">
+                                                <div class="row">
+                                                    <div class="col-lg-4">
+                                                        <ul class="v-level-2">
+                                                            
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/7454/">BATTERY CARRIER
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/5853/"> FLOOR INSULATOR
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/7151/">SEAT & SEAT TRACK
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/5855/">CONSOLE BOX & BRACKET
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/5251/l">CAB MOUNTING & BODY MOUNTING
+                                                                        </a>
+                                                                    </li>
+                                                        
+                                                                  
+                                                            </ul>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </a>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <ul class="bottom-nav g-nav u-d-none-lg">
+                            <li>
+                                <a href="{% url 'home' %}">HOME
+                                    
+                                </a>
+                            </li>
+                            
+                           
+                            <li class="mega-position">
+                                <a>PAGES
+                                    <i class="fas fa-chevron-down u-s-m-l-9"></i>
+                                </a>
+                                <div class="mega-menu mega-3-colm">
+                                    <ul>
+                                        <li class="menu-title">Home & Static Pages</li>
+                                        <li>
+                                            <a href="{% url 'home' %}" class="u-c-brand">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'about' %}">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'contact' %}">Contact</a>
+                                        </li>
+                                    
+                                       
+                                        <li>
+                                            <a href="{% url 'terms' %}">Terms & Conditions</a>
+                                        </li>
+                                    
+                                      
+                                      
+                                       
+                                    </ul>
+                                    <ul>
+                                        <li class="menu-title">Ecommerce Pages</li>
+                                       
+                                      
+                                        <li>
+                                            <a href="{% url 'checkout' %}">Checkout</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'account' %}">My Account</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'wishlist' %}">Wishlist</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'track' %}">Track your Order</a>
+                                        </li>
+                                       
+                                       
+                                        <li class="menu-title">
+                                            <a href="{% url 'cart' %}">Cart </a>
+                                        </li>
+                                       
+                                        <li class="menu-title">
+                                            <a href="{% url 'wishlist' %}">Wishlist </a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                       
+                                        <li class="menu-title">My Account Variation</li>
+                                        <li>
+                                            <a href="{% url 'lost-password' %}">Lost Your Password ?</a>
+                                        </li>
+                                       
+                                        
+                                        <li class="menu-title">Custom Deals Page</li>
+                                        <li>
+                                            <a href="{% url 'custom' %}">Custom Deal Page</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom-Header /- -->
+    </header>
+    <!-- Header /- -->
+    <!-- Main-Slider -->
+    
+    <div class="default-height ph-item">
+        <div class="slider-main owl-carousel">
+            <div class="bg-image one">
+                <div class="slide-content slide-animation">
+                    <h1>ENGINE</h1>
+                    <img src="{% static 'image/wallpaper5.jpg' %}" style="width:100%">
+                </div>
+            </div>
+            <div class="bg-image two" >
+                <div class="slide-content slide-animation">
+                    <h1>STOCK</h1>
+                    <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
+                </div>
+            </div>
+            <div class="bg-image three">
+                <div class="slide-content slide-animation">
+                    <h1>STOCK</h1>
+                    <img src="{% static 'image/hd1.jpg' %}" style="width:100%">
+                </div>
+                </div>
+            </div>
+         
+        
+            
+        </div>
+    </div>
+    <!-- Main-Slider /- -->
+    <!-- Header /- -->
+   
+    <div class="page-about u-s-p-t-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="about-me-info u-s-m-b-30">
+                        <h1>Welcome to
+                            <span>Sparke Autoparts Sdn Bhd</span>
+                        </h1>
+                        <h6>Sparke Autoparts is the premier online autoparts trading platform in Malaysia serving both the passenger and commercial vehicle markets.
+                        </h6>
+                        <h6>Through our extensive supplier network, we take out the hassle of comparing the best market prices and pass on the savings to you.
+                        </h6>
+                        <h6>With up to 95% brand and product coverage in body, mechanical and maintenance parts, as well as varying qualities (Original, OEM, REM and Used) to suit every budget, we’re the one-stop shop for All The Parts You Need
+                        </h6>
+                        </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="about-me-image u-s-m-b-30">
+                        
+                            <img class="img-fluid" src="{% static 'image/download.png' %}" width="100%" alt="About Picture">
+                     
+                    </div>
+                    <div class="about-social text-center u-s-m-b-30">
+                        <ul class="social-media-list">
+                            <li>
+                                <a href="https://www.facebook.com/sparkeautoparts/">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/?lang=en">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-google-plus-g"></i>
+                                </a>
+                            </li>
+                          
+                            <li>
+                                <a href="#">
+                                    <i class="fab fa-pinterest"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About-Page /- -->
+   <!-- Footer -->
+   <footer class="footer">
+    <div class="container">
+        <!-- Outer-Footer -->
+        <div class="outer-footer-wrapper u-s-p-y-80">
+            
+            <h1>
+                To order the Car Parts Customers 
+            </h1>
+            <h4>
+                Register and Login 
+            </h4>
+            <form class="newsletter-form">
+                <label class="sr-only" for="newsletter-field">Enter your Email</label>
+                <input type="text" id="newsletter-field" placeholder="Your Email Address">
+                <button type="submit" class="button">SUBMIT</button>
+            </form>
+        </div>
+        <!-- Outer-Footer /- -->
+        <!-- Mid-Footer -->
+        <div class="mid-footer-wrapper u-s-p-b-80">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="footer-list">
+                        <h6>CUSTOMER SERVICE</h6>
+                        <ul>
+                            <li>
+                                <a href="{% url 'faq' %}">FAQs</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'track' %}">Track Order</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'terms' %}">Terms & Conditions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="footer-list">
+                        <h6>COMPANY</h6>
+                        <ul>
+                            <li>
+                                <a href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'about' %}">About</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contact' %}">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="footer-list">
+                        <h6>INFORMATION</h6>
+                        <ul>
+                            <li>
+                                <a href="{% url 'store' %}">Categories Directory</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'wishlist' %}">My Wishlist</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'cart' %}">My Cart</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-12">
+                    <div class="footer-list">
+                        <h6>Address</h6>
+                        <ul>
+                            <li>
+                                <i class="fas fa-location-arrow u-s-m-r-9"></i>
+                                <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
+                            </li>
+                            <li>
+                                <a href="tel:+60123456789">
+                                    <i class="fas fa-phone u-s-m-r-9"></i>
+                                    <span>+60123456789</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@domain.com">
+                                    <i class="fas fa-envelope u-s-m-r-9"></i>
+                                    <span>
+                                        contact@domain.com</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mid-Footer /- -->
+        <!-- Bottom-Footer -->
+        <div class="bottom-footer-wrapper">
+            <div class="social-media-wrapper">
+                <ul class="social-media-list">
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-google-plus-g"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-rss"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p class="copyright-text">Copyright &copy; 2021
+                <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
+        </div>
+    </div>
+    <!-- Bottom-Footer /- -->
+</footer>
+<!-- Footer /- -->
+    <!-- Dummy Selectbox -->
+    <div class="select-dummy-wrapper">
+        <select id="compute-select">
+            <option id="compute-option">All</option>
+        </select>
+    </div>
+    <!-- Dummy Selectbox /- -->
+    <!-- Responsive-Search -->
+    <div class="responsive-search-wrapper">
+        <button type="button" class="button ion ion-md-close" id="responsive-search-close-button"></button>
+        <div class="responsive-search-container">
+            <div class="container">
+                <p>Start typing and press Enter to search</p>
+                <form class="responsive-search-form">
+                    <label class="sr-only" for="search-text">Search</label>
+                    <input id="search-text" type="text" class="responsive-search-field" placeholder="PLEASE SEARCH">
+                    <i class="fas fa-search"></i>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Responsive-Search /- -->
+</div>
+<!-- app /- -->
+<!--[if lte IE 9]>
+<div class="app-issue">
+    <div class="vertical-center">
+        <div class="text-center">
+            <h1>You are using an outdated browser.</h1>
+            <span>This web app is not compatible with following browser. Please upgrade your browser to improve your security and experience.</span>
+        </div>
+    </div>
+</div>
+<style> #app {
+    display: none;
+} </style>
+<![endif]-->
+<!-- NoScript -->
+<style>
+    form.form-searchbox {
+        width: 80%;
+        margin-left: 100px;
+    }
+    
+</style>
+<noscript>
+    <div class="app-issue">
+        <div class="vertical-center">
+            <div class="text-center">
+                <h1>JavaScript is disabled in your browser.</h1>
+                <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser to register for Groover.</span>
+            </div>
+        </div>
+    </div>
+   
+</noscript>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+window.ga = function() {
+    ga.q.push(arguments)
+};
+ga.q = [];
+ga.l = +new Date;
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+<!-- Modernizr-JS -->
+<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
+<!-- NProgress -->
+<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
+<!-- jQuery -->
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+<!-- Popper -->
+<script type="text/javascript" src="../static/js/popper.min.js"></script>
+<!-- ScrollUp -->
+<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
+<!-- Elevate Zoom -->
+<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
+<!-- jquery-ui-range-slider -->
+<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
+<!-- jQuery Slim-Scroll -->
+<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
+<!-- jQuery Resize-Select -->
+<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
+<!-- jQuery Custom Mega Menu -->
+<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
+<!-- jQuery Countdown -->
+<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
+<!-- Owl Carousel -->
+<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="../static/js/app.js"></script>
+</body>
+</html>
