@@ -3,11 +3,16 @@ from django.shortcuts import render,redirect
 from django.http.response import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LoginView
-from .models import Part 
-
-
+from .models import Cart, Customer, Part 
+from django.http import JsonResponse
+import json 
+from .models import Part, Cart
 from django.http import HttpResponse
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views import View
+from .forms import Profileform, form_validation_error 
 
 # Create your views here.
 
@@ -34,8 +39,6 @@ def base1(request):
 def seller(request):
     return render(request, "seller.html")
     
-def cart(request):
-    return render(request, "cart.html")
 
 def update(request):
     return render(request, "update.html")
@@ -152,3 +155,33 @@ def signup(request):
 def PartTest(request):
     parts = Part.objects.all()
     return render(request,"PartTest.html",{'parts':parts})
+
+
+def cart(request):
+    carts = Cart.objects.all()
+    return render(request,"cart.html",{'carts':carts})
+
+def updateItem(request):
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+    print('Action:',action)
+    print('Product:',productId)
+
+    customer = request.user.customer 
+    product = Part.objects.get(id=productId)
+    order, created = Cart.objects.get_or_create(customer=customer,complete=False)
+    
+    return JsonResponse('Item was added',safe=False)
+
+
+def ProfileView(request):
+    if request.method == "POST":
+        form =Profileform(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect("/profile")
+    else:
+        form = Profileform()
+    return render(request, "profile.html",{"form":form})
+

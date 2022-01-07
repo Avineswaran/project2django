@@ -226,7 +226,7 @@
                         </a>
                     </li>
                     <li class="clearfix">
-                        <a href="{% url 'single-product' %}">
+                        <a href="{% url 'singleproduct' %}">
                             <img src="{% static 'image/FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
                             <span class="mini-item-name">Front Axle Arm</span>
                             <span class="mini-item-price">RM150.00</span>
@@ -234,7 +234,7 @@
                         </a>
                     </li>
                     <li class="clearfix">
-                        <a href="{% url 'single-product' %}">
+                        <a href="{% url 'singleproduct' %}">
                             <img src="{% static 'image/HEADLAMP.jpg' %} " alt="Product">
                             <span class="mini-item-name">Headlamp</span>
                             <span class="mini-item-price">RM230.00</span>
@@ -296,7 +296,8 @@
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th></th>
+                <th>partimage</th>
                 <th>partNo</th>
                 <th>partName</th>
                 <th>partCategory</th>
@@ -311,6 +312,7 @@
             {% for part in parts %}  
               <tr>
                 <td>{{part.id}}</td>
+                <td>{{part.partimage}}</td>
                 <td>{{part.partno}}</td>
                 <td>{{part.partname}}</td>
                 <td>{{part.partcategory}}</td>
