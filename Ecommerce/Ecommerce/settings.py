@@ -16,6 +16,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -67,7 +68,7 @@ LOGIN_REDIRECT_URL = "/myaccount"
 LOGOUT_REDIRECT_URL = "/home"
 
 ACCOUNT_FORMS = {
-    'signup': 'Sparke.forms.CustomSignupForm',
+    
 }
 
 
@@ -170,3 +171,12 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_URL = '/image/'
+
+MEDIA_ROOT = BASE_DIR / 'static'
+
+STARICFILES_DIR = [
+    
+    BASE_DIR / 'static' 
+
+]

@@ -124,7 +124,7 @@
                                 </li>
                             </ul>
                         </li>
-                        >
+                        
                         <li>
                             <a>ENG
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
@@ -201,8 +201,7 @@
                                 <li>
                                     <a id="mini-cart-trigger">
                                         <i class="ion ion-md-basket"></i>
-                                        <span class="item-counter">4</span>
-                                        <span class="item-price">RM935.00</span>
+                                       
                                     </a>
                                 </li>
                             </ul>
@@ -212,71 +211,7 @@
             </div>
         </div>
         <!-- Mid-Header /- -->
-        <!-- Responsive-Buttons -->
-        <div class="fixed-responsive-container">
-            <div class="fixed-responsive-wrapper">
-                <button type="button" class="button fas fa-search" id="responsive-search"></button>
-            </div>
-            <div class="fixed-responsive-wrapper">
-                <a href="{% url 'wishlist' %}">
-                    <i class="far fa-heart"></i>
-                    <span class="fixed-item-counter">3</span>
-                </a>
-            </div>
-        </div>
-        <!-- Responsive-Buttons /- -->
-        <!-- Mini Cart -->
-        <div class="mini-cart-wrapper">
-            <div class="mini-cart">
-                <div class="mini-cart-header">
-                    YOUR CART
-                    <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
-                </div>
-                <ul class="mini-cart-list">
-                    <li class="clearfix">
-                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="{% static 'image/gear-443676_960_720.jpg' %}" alt="Product">
-                            <span class="mini-item-name">Partial Engine Assembly</span>
-                            <span class="mini-item-price">RM500.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="{% static 'gasket.jpg' %}" alt="Product">
-                            <span class="mini-item-name">Gasket</span>
-                            <span class="mini-item-price">RM55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="{% url 'singleproduct' %}">
-                            <img src="{% static 'FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
-                            <span class="mini-item-name">Front Axle Arm</span>
-                            <span class="mini-item-price">RM150.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="{% url 'singleproduct' %}">
-                            <img src="{% static 'HEADLAMP.jpg' %} " alt="Product">
-                            <span class="mini-item-name">Headlamp</span>
-                            <span class="mini-item-price">RM230.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="mini-shop-total clearfix">
-                    <span class="mini-total-heading float-left">Total:</span>
-                    <span class="mini-total-price float-right">RM935.00</span>
-                </div>
-                <div class="mini-action-anchors">
-                    <a href="{% url 'cart' %}" class="cart-anchor">View Cart</a>
-                    <a href="{% url 'checkout' %}" class="checkout-anchor">Checkout</a>
-                </div>
-            </div>
-        </div>
-        <!-- Mini Cart /- -->
+        
 
 <!-- Header /- -->
 <!-- Main-Slider -->
@@ -285,7 +220,7 @@
 <div class="slider-main owl-carousel">
     <div class="bg-image one">
         <div class="slide-content slide-animation">
-            <h1>ENGINE</h1>
+            
             <img src="{% static 'image/wallpaper3.jpg' %}" style="width:100%">
         </div>
     </div>
@@ -300,13 +235,13 @@
     <div class="bg-image two" >
         <div class="slide-content slide-animation">
             <h1>STOCK</h1>
-            <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
+            <img src="{% static 'image/h3.jpg' %}" style="width:100%">
         </div>
     </div>
     <div class="bg-image three">
         <div class="slide-content slide-animation">
             <h1>STOCK</h1>
-            <img src="{% static 'image/hd1.jpg' %}" style="width:100%">
+            <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
         </div>
         </div>
     </div>
@@ -336,26 +271,12 @@
           {% endif %}
         </ul>
       </div>
-
+ <br>
+ <br>
     <!-- Footer -->
 <footer class="footer">
     <div class="container">
-        <!-- Outer-Footer -->
-        <div class="outer-footer-wrapper u-s-p-y-80">
-            
-            <h1>
-                To order the Car Parts Customers 
-            </h1>
-            <h4>
-                Register and Login 
-            </h4>
-            <form class="newsletter-form">
-                <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                <input type="text" id="newsletter-field" placeholder="Your Email Address">
-                <button type="submit" class="button">SUBMIT</button>
-            </form>
-        </div>
-        <!-- Outer-Footer /- -->
+       
         <!-- Mid-Footer -->
         <div class="mid-footer-wrapper u-s-p-b-80">
             <div class="row">
@@ -489,37 +410,7 @@
     </select>
 </div>
 <!-- Dummy Selectbox /- -->
-<!-- Responsive-Search -->
-<div class="responsive-search-wrapper">
-    <button type="button" class="button ion ion-md-close" id="responsive-search-close-button"></button>
-    <div class="responsive-search-container">
-        <div class="container">
-            <p>Start typing and press Enter to search</p>
-            <form class="responsive-search-form">
-                <label class="sr-only" for="search-text">Search</label>
-                <input id="search-text" type="text" class="responsive-search-field" placeholder="PLEASE SEARCH">
-                <i class="fas fa-search"></i>
-            </form>
-        </div>
-    </div>
-</div>
-<!-- Responsive-Search /- -->
-</div>
-<!-- app /- -->
-<!--[if lte IE 9]>
-<div class="app-issue">
-<div class="vertical-center">
-    <div class="text-center">
-        <h1>You are using an outdated browser.</h1>
-        <span>This web app is not compatible with following browser. Please upgrade your browser to improve your security and experience.</span>
-    </div>
-</div>
-</div>
-<style> #app {
-display: none;
-} </style>
-<![endif]-->
-<!-- NoScript -->
+
 
 
 <style>
@@ -528,32 +419,12 @@ form.form-searchbox {
     margin-left: 100px;
 }
 
-
-
-
 </style>
 
-<noscript>
-<div class="app-issue">
-    <div class="vertical-center">
-        <div class="text-center">
-            <h1>JavaScript is disabled in your browser.</h1>
-            <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser to register for Groover.</span>
-        </div>
-    </div>
-</div>
 
-</noscript>
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script>
-window.ga = function() {
-ga.q.push(arguments)
-};
-ga.q = [];
-ga.l = +new Date;
-ga('create', 'UA-XXXXX-Y', 'auto');
-ga('send', 'pageview')
-</script>
+
+
+
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 <!-- Modernizr-JS -->
 <script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
@@ -583,5 +454,7 @@ ga('send', 'pageview')
 <script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="../static/js/app.js"></script>
+
+<script type="text/javascript" src="../static/js/cart.js"></script>
 </body>
 {% endblock %}

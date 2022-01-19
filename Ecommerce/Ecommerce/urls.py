@@ -63,6 +63,8 @@ urlpatterns = [
     path('shopv5productnotfound', views.shopv5productnotfound,name='shopv5productnotfound'),
     path('shopv6searchresults', views.shopv6searchresults,name='shopv6searchresults'),
     path('PartTest',views.PartTest, name='PartTest'),
+    path('update_item/',views.updateItem,name="update_item"),
+    path('profileEdit/',views.ProfileEdit,name="profileEdit"),
 
     path('',include("allauth.urls")),
 ]

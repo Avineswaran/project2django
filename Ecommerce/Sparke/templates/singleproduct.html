@@ -1,3 +1,6 @@
+{% load static %}
+
+{% block content %}
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
@@ -9,8 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Sparke Autoparts - Online Automation Trading Management System
-    </title>
+    <title>{% block title %}Sparke Autoparts - Online Automation Trading Management System{% endblock title %}</title>
+    
+    
     <!-- Standard Favicon -->
     <link href="favicon.ico" rel="shortcut icon">
     <!-- Base Google Font for Web-app -->
@@ -35,6 +39,8 @@
     <link rel="stylesheet" href="../static/css/bundle.css">
 </head>
 
+{% if user.is_authenticated %}
+            Hello {{ user.username }},
 <body>
 
 <!-- app -->
@@ -67,28 +73,28 @@
                             </a>
                             <ul class="g-dropdown" style="width:200px">
                                 <li>
-                                    <a href="cart.html">
+                                    <a href="{% url 'cart' %}">
                                         <i class="fas fa-cog u-s-m-r-9"></i>
                                         My Cart</a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.html">
+                                    <a href="{% url 'wishlist' %}">
                                         <i class="far fa-heart u-s-m-r-9"></i>
                                         My Wishlist</a>
                                 </li>
+
                                 <li>
-                                    <a href="checkout.html">
-                                        <i class="far fa-check-circle u-s-m-r-9"></i>
-                                        Checkout</a>
+                                    <a href="{% url 'profile' %}">
+                                        <i class="far fa-heart u-s-m-r-9"></i>
+                                        Manage Account</a>
                                 </li>
                                 <li>
-                                    <a href="account.html">
+                                    <a href="{% url 'account_logout' %}">
                                         <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                        Login / Signup</a>
+                                        Logout</a>
                                 </li>
                             </ul>
                         </li>
-                        >
                         <li>
                             <a>ENG
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
@@ -106,145 +112,148 @@
             </div>
         </div>
         <!-- Top-Header /- -->
-        <!-- Mid-Header -->
-        <div class="full-layer-mid-header">
-            <div class="container">
-                <div class="row clearfix align-items-center">
-                    <div class="col-lg-3 col-md-9 col-sm-6">
-                        <div class="brand-logo text-lg-center">
-                            <a href="home.html">
-                                <img src="FinalLogo2.png" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
-                            </a>
-                        </div>
+       <!-- Mid-Header -->
+       <div class="full-layer-mid-header">
+        <div class="container">
+            <div class="row clearfix align-items-center">
+                <div class="col-lg-3 col-md-9 col-sm-6">
+                    <div class="brand-logo text-lg-center">
+                        <a href="{% url 'myaccount' %}">
+                            <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                        </a>
                     </div>
-                    <div class="col-lg-6 u-d-none-lg">
-                        <form class="form-searchbox">
-                            <label class="sr-only" for="search-landscape">Search</label>
-                            <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
-                            <div class="select-box-position">
-                                <div class="select-box-wrapper select-hide">
-                                    <label class="sr-only" for="select-category">Choose parts Category</label>
-                                    <select class="select-box" id="select-category">
-                                        <option selected="selected" value="">
-                                            All
-                                        </option>
-                                        <option value="">Engine</option>
-                                        <option value="">Audio, Navigation, Electronic Systems </option>
-                                        <option value="">Automatic transmission 
-                                        <option value="">Brakes
-                                        </option>
-                                        <option value="">Communication System
-                                        </option>
-                                        <option value="">Exhaust system                                    
-                                        </option>
-                                        <option value="">Radiator
-                                        </option>
-                                        <option value="">Steering
-                                        </option>
-                                        <option value="">Wheels
+                </div>
+               <div class="col-lg-6 u-d-none-lg">
+                  <form class="form-searchbox" action="{% url 'PartTest' %}">
+                      <label class="sr-only" for="search-landscape">Search</label>
+                      <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
+                      <div class="select-box-position">
+                          <div class="select-box-wrapper select-hide">
+                              <label class="sr-only" for="select-category">Choose parts Category</label>
+                              <select class="select-box" id="select-category">
+                                  <option selected="selected" value="{% url 'PartTest' %}">
+                                        All
+                                    </option>
+                                    <option value="">Engine</option>
+                                    <option value="">Audio, Navigation, Electronic Systems </option>
+                                    <option value="">Automatic transmission 
+                                    <option value="">Brakes
+                                    </option>
+                                    <option value="">Communication System
+                                    </option>
+                                    <option value="">Exhaust system                                    
+                                    </option>
+                                    <option value="">Radiator
+                                    </option>
+                                    <option value="">Steering
+                                    </option>
+                                    <option value="">Wheels
 
-                                    </select>
-                                </div>
+                                </select>
                             </div>
-                            <button id="btn-search" type="submit" class="button button-primary fas fa-search"></button>
-                        </form>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <nav>
-                            <ul class="mid-nav g-nav">
-                                <li class="u-d-none-lg">
-                                    <a href="home.html">
-                                        <i class="ion ion-md-home u-c-brand"></i>
-                                    </a>
-                                </li>
-                                <li class="u-d-none-lg">
-                                    <a href="wishlist.html">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="mini-cart-trigger">
-                                        <i class="ion ion-md-basket"></i>
-                                        <span class="item-counter">4</span>
-                                        <span class="item-price">RM935.00</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                        </div>
+                        <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6">
+                    <nav>
+                        <ul class="mid-nav g-nav">
+                            <li class="u-d-none-lg">
+                                <a href="{% url 'home' %}">
+                                    <i class="ion ion-md-home u-c-brand"></i>
+                                </a>
+                            </li>
+                            <li class="u-d-none-lg">
+                                <a href="{% url 'wishlist' %}">
+                                    <i class="far fa-heart"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="mini-cart-trigger">
+                                    <i class="ion ion-md-basket"></i>
+                              
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
-        <!-- Mid-Header /- -->
-        <!-- Responsive-Buttons -->
-        <div class="fixed-responsive-container">
-            <div class="fixed-responsive-wrapper">
-                <button type="button" class="button fas fa-search" id="responsive-search"></button>
+    </div>
+    <!-- Mid-Header /- -->
+    <!-- Responsive-Buttons -->
+    <div class="fixed-responsive-container">
+        <div class="fixed-responsive-wrapper">
+            <button type="button" class="button fas fa-search" id="responsive-search"></button>
+        </div>
+        <div class="fixed-responsive-wrapper">
+            <a href="{% url 'wishlist' %}">
+                <i class="far fa-heart"></i>
+                <span class="fixed-item-counter">3</span>
+            </a>
+        </div>
+    </div>
+    <!-- Responsive-Buttons /- -->
+    <!-- Mini Cart -->
+    <div class="mini-cart-wrapper">
+        <div class="mini-cart">
+            <div class="mini-cart-header">
+                YOUR CART
+                <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
             </div>
-            <div class="fixed-responsive-wrapper">
-                <a href="wishlist.html">
-                    <i class="far fa-heart"></i>
-                    <span class="fixed-item-counter">3</span>
-                </a>
+            <ul class="mini-cart-list">
+                <li class="clearfix">
+                    <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
+                        <img src="{% static 'image/gear-443676_960_720.jpg' %}" alt="Product">
+                        <span class="mini-item-name">Partial Engine Assembly</span>
+                        <span class="mini-item-price">RM500.00</span>
+                        <span class="mini-item-quantity"> x 1 </span>
+                    </a>
+                </li>
+                <li class="clearfix">
+                    <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
+                        <img src="{% static 'image/gasket.jpg' %}" alt="Product">
+                        <span class="mini-item-name">Gasket</span>
+                        <span class="mini-item-price">RM55.00</span>
+                        <span class="mini-item-quantity"> x 1 </span>
+                    </a>
+                </li>
+                <li class="clearfix">
+                    <a href="{% url 'singleproduct' %}">
+                        <img src="{% static 'image/FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
+                        <span class="mini-item-name">Front Axle Arm</span>
+                        <span class="mini-item-price">RM150.00</span>
+                        <span class="mini-item-quantity"> x 1 </span>
+                    </a>
+                </li>
+                <li class="clearfix">
+                    <a href="{% url 'singleproduct' %}">
+                        <img src="{% static 'image/HEADLAMP.jpg' %} " alt="Product">
+                        <span class="mini-item-name">Headlamp</span>
+                        <span class="mini-item-price">RM230.00</span>
+                        <span class="mini-item-quantity"> x 1 </span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mini-shop-total clearfix">
+                <span class="mini-total-heading float-left">Total:</span>
+                <span class="mini-total-price float-right">RM935.00</span>
+            </div>
+            <div class="mini-action-anchors">
+                <a href="{% url 'cart' %}" class="cart-anchor">View Cart</a>
+                <a href="{% url 'checkout' %}" class="checkout-anchor">Checkout</a>
             </div>
         </div>
-        <!-- Responsive-Buttons /- -->
-        <!-- Mini Cart -->
-        <div class="mini-cart-wrapper">
-            <div class="mini-cart">
-                <div class="mini-cart-header">
-                    YOUR CART
-                    <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
-                </div>
-                <ul class="mini-cart-list">
-                    <li class="clearfix">
-                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="gear-443676_960_720.jpg" alt="Product">
-                            <span class="mini-item-name">Partial Engine Assembly</span>
-                            <span class="mini-item-price">RM500.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                            <img src="gasket.jpg" alt="Product">
-                            <span class="mini-item-name">Gasket</span>
-                            <span class="mini-item-price">RM55.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="FRONT AXLE ARM & STEERING KNUCKLE.jpg" alt="Product">
-                            <span class="mini-item-name">Front Axle Arm</span>
-                            <span class="mini-item-price">RM150.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                    <li class="clearfix">
-                        <a href="single-product.html">
-                            <img src="HEADLAMP.jpg" alt="Product">
-                            <span class="mini-item-name">Headlamp</span>
-                            <span class="mini-item-price">RM230.00</span>
-                            <span class="mini-item-quantity"> x 1 </span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="mini-shop-total clearfix">
-                    <span class="mini-total-heading float-left">Total:</span>
-                    <span class="mini-total-price float-right">RM935.00</span>
-                </div>
-                <div class="mini-action-anchors">
-                    <a href="cart.html" class="cart-anchor">View Cart</a>
-                    <a href="checkout.html" class="checkout-anchor">Checkout</a>
-                </div>
-            </div>
-        </div>
-        <!-- Mini Cart /- -->
-      <!-- Bottom-Header -->
-      <div class="full-layer-bottom-header">
+    </div>
+    <!-- Mini Cart /- -->
+    <!-- Bottom-Header -->
+
+    
+      
+    <div class="full-layer-bottom-header">
         <div class="container">
             <div class="row align-items-center">
+                
                 <div class="col-lg-3">
                     <div class="v-menu">
                         <span class="v-title">
@@ -256,7 +265,7 @@
                             <div class="v-wrapper">
                                 <ul class="v-list animated fadeIn">
                                     <li class="js-backdrop">
-                                        <a href="shop-v1-root-category.html">
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
                                           
                                             ENGINE
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -290,8 +299,8 @@
                                         </div>
                                     </li>
                                     <li class="js-backdrop">
-                                        <a href="shop-v1-root-category.html">
-                                          
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/ ">
+                                        
                                             FUEL SYSTEM
                                             <i class="ion ion-ios-arrow-forward"></i>
                                         </a>
@@ -309,7 +318,7 @@
                                                                     <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1501/">FUEL PUMP</a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-v3-sub-sub-category.html">FUEL TANK
+                                                                    <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/2211/">FUEL TANK
                                                                     </a>
                                                                 </li>
                                                                 <li>
@@ -323,7 +332,7 @@
                                                 <div class="col-lg-4">
                                                     <ul class="v-level-2">
                                                         <li>
-                                                            <a href="shop-v2-sub-category.html">
+                                                            <a href="{% url 'shopv2subcategory' %}">
                                                             </a>
                                                             
                                                 </div>
@@ -332,7 +341,7 @@
                                         </div>
                                     </li>
                                     <li class="js-backdrop">
-                                        <a href="shop-v1-root-category.html">
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/">
                                            
                                             TOOLS
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -344,14 +353,14 @@
                                                     <ul class="v-level-2">
                                                       
                                                                 <li>
-                                                                    <a href="shop-v3-sub-sub-category.html">WATER PUMP
+                                                                    <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1601/">WATER PUMP
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-v3-sub-sub-category.html">V-BELT                                                                        </a>
+                                                                    <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1605/">V-BELT                                                                        </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="shop-v3-sub-sub-category.html">AIR CLEANER
+                                                                    <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/engine/1703/">AIR CLEANER
                                                                     </a>
                                                                 </li>
                                                                
@@ -369,7 +378,7 @@
                                     </li>
                                   
                                     <li class="js-backdrop">
-                                        <a href="shop-v1-root-category.html">
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/chassis/">
                                            
                                             TRANSMISSION
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -419,7 +428,8 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <a href="shop-v1-root-category.html">
+                                        
+                                        <a href="https://toyota.epc-data.com/vellfire/anh20w/29350/electric/">
                                             
                                             ELECTRICS
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -468,7 +478,7 @@
                                         </a>
                                     </li>
                                     <li class="v-none" style="display: none">
-                                        <a href="shop-v1-root-category.html">
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
                                            
                                             BODY
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -512,7 +522,7 @@
                                         </a>
                                     </li>
                                     <li class="v-none" style="display: none">
-                                        <a href="shop-v1-root-category.html">
+                                        <a href="https://toyota.epc-data.com/vellfire/ggh25w/63454/body/">
                                            
                                             INTERIOR
                                             <i class="ion ion-ios-arrow-forward"></i>
@@ -552,7 +562,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="v-more">
+                                        <a class="v-more v-close">
                                             <i class="ion ion-md-add"></i>
                                             <span>View More</span>
                                         </a>
@@ -565,15 +575,11 @@
                 <div class="col-lg-9">
                     <ul class="bottom-nav g-nav u-d-none-lg">
                         <li>
-                            <a href="home.html">HOME
+                            <a href="{% url 'home' %}">HOME
                                 
                             </a>
                         </li>
-                        <li>
-                            <a href="custom-deal-page.html">SELLER ACCOUNT
-                                <span class="superscript-label-hot">HOT</span>
-                            </a>
-                        </li>
+                        
                        
                         <li class="mega-position">
                             <a>PAGES
@@ -583,104 +589,61 @@
                                 <ul>
                                     <li class="menu-title">Home & Static Pages</li>
                                     <li>
-                                        <a href="home.html" class="u-c-brand">Home</a>
+                                        <a href="{% url 'home' %}" class="u-c-brand">Home</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About</a>
+                                        <a href="{% url 'about' %}">About</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{% url 'contact' %}">Contact</a>
                                     </li>
+                                
+                                   
                                     <li>
-                                        <a href="faq.html">FAQ</a>
+                                        <a href="{% url 'terms' %}">Terms & Conditions</a>
                                     </li>
-                                    <li>
-                                        <a href="store-directory.html">Store Directory</a>
-                                    </li>
-                                    <li>
-                                        <a href="terms-and-conditions.html">Terms & Conditions</a>
-                                    </li>
-                                    <li>
-                                        <a href="404.html">404</a>
-                                    </li>
-                                    <li class="menu-title">Single Product Page</li>
-                                    <li>
-                                        <a href="single-product.html">Single Product Fullwidth</a>
-                                    </li>
-                                    <li class="menu-title">Blog</li>
-                                    <li>
-                                        <a href="blog.html">Blog Page</a>
-                                    </li>
-                                    <li>
-                                        <a href="blog-detail.html">Blog Details</a>
-                                    </li>
+                                
+                                  
+                                  
+                                   
                                 </ul>
                                 <ul>
                                     <li class="menu-title">Ecommerce Pages</li>
+                                   
+                                  
                                     <li>
-                                        <a href="shop-v2-sub-category.html">Shop</a>
+                                        <a href="{% url 'checkout' %}">Checkout</a>
                                     </li>
                                     <li>
-                                        <a href="cart.html">Cart</a>
+                                        <a href="{% url 'account' %}">My Account</a>
                                     </li>
                                     <li>
-                                        <a href="checkout.html">Checkout</a>
+                                        <a href="{% url 'wishlist' %}">Wishlist</a>
                                     </li>
                                     <li>
-                                        <a href="account.html">My Account</a>
+                                        <a href="{% url 'track' %}">Track your Order</a>
                                     </li>
-                                    <li>
-                                        <a href="wishlist.html">Wishlist</a>
+                                   
+                                   
+                                    <li class="menu-title">
+                                        <a href="{% url 'cart' %}">Cart </a>
                                     </li>
-                                    <li>
-                                        <a href="track-order.html">Track your Order</a>
-                                    </li>
-                                    <li class="menu-title">Cart Variations</li>
-                                    <li>
-                                        <a href="cart-empty.html">Cart Ver 1 Empty</a>
-                                    </li>
-                                    <li>
-                                        <a href="cart.html">Cart Ver 2 Full</a>
-                                    </li>
-                                    <li class="menu-title">Wishlist Variations</li>
-                                    <li>
-                                        <a href="wishlist-empty.html">Wishlist Ver 1 Empty</a>
-                                    </li>
-                                    <li>
-                                        <a href="wishlist.html">Wishlist Ver 2 Full</a>
+                                   
+                                    <li class="menu-title">
+                                        <a href="{% url 'wishlist' %}">Wishlist </a>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li class="menu-title">Shop Variations</li>
-                                    <li>
-                                        <a href="shop-v1-root-category.html">Shop Ver 1 Root Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v2-sub-category.html">Shop Ver 2 Sub Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v3-sub-sub-category.html">Shop Ver 3 Sub Sub Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v4-filter-as-category.html">Shop Ver 4 Filter as Category</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v5-product-not-found.html">Shop Ver 5 Product Not Found</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-v6-search-results.html">Shop Ver 6 Search Results</a>
-                                    </li>
+                                   
                                     <li class="menu-title">My Account Variation</li>
                                     <li>
-                                        <a href="lost-password.html">Lost Your Password ?</a>
+                                        <a href="{% url 'lost-password' %}">Lost Your Password ?</a>
                                     </li>
-                                    <li class="menu-title">Checkout Variation</li>
-                                    <li>
-                                        <a href="confirmation.html">Checkout Confirmation</a>
-                                    </li>
+                                   
+                                    
                                     <li class="menu-title">Custom Deals Page</li>
                                     <li>
-                                        <a href="custom-deal-page.html">Custom Deal Page</a>
+                                        <a href="{% url 'custom' %}">Custom Deal Page</a>
                                     </li>
                                 </ul>
                             </div>
@@ -692,35 +655,44 @@
         </div>
     </div>
     <!-- Bottom-Header /- -->
-    </header>
-    <!-- Header /- -->
-      <!-- Main-Slider -->
-      <div class="default-height ph-item">
-        <div class="slider-main owl-carousel">
-            <div class="bg-image one">
-                <div class="slide-content slide-animation">
-                    <h1>ENGINE</h1>
-                    <img src="HD4.jpg" style="width:100%">
-                </div>
+</header>
+<!-- Header /- -->
+<!-- Main-Slider -->
+
+<div class="default-height ph-item">
+    <div class="slider-main owl-carousel">
+        <div class="bg-image one">
+            <div class="slide-content slide-animation">
+                
+                <img src="{% static 'image/hd5.jpg' %}" style="width:100%">
             </div>
-        
-            <div class="bg-image two" >
-                <div class="slide-content slide-animation">
-                    <h1>STOCK</h1>
-                    <img src="hd5.jpg" style="width:100%">
-                </div>
-            </div>
-            <div class="bg-image three">
-                <div class="slide-content slide-animation">
-                    <h1>STOCK</h1>
-                    <img src="HD3.jpg" style="width:100%">
-                </div>
-                </div>
-            </div>
-            
         </div>
+    
+        <div class="bg-image two" >
+            <div class="slide-content slide-animation">
+                
+                <img src="{% static 'image/hd2.jpg' %}" style="width:100%">
+            </div>
+        </div>
+
+        <div class="bg-image three" >
+            <div class="slide-content slide-animation">
+                >
+                <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
+            </div>
+        </div>
+        <div class="bg-image four">
+            <div class="slide-content slide-animation">
+                
+                <img src="{% static 'image/hd1.jpg' %}" style="width:100%">
+            </div>
+            </div>
+        </div>
+    
+        
     </div>
-    <!-- Main-Slider /- -->
+</div>
+<!-- Main-Slider /- -->
     <!-- Single-Product-Full-Width-Page -->
     <div class="page-detail u-s-p-t-80">
         <div class="container">
@@ -729,10 +701,10 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <!-- Product-zoom-area -->
                     <div class="zoom-area">
-                        <img id="zoom-pro" class="img-fluid" src="partial engine assembly.jpg" data-zoom-image="engine" alt="Zoom Image">
+                        <img id="zoom-pro" class="img-fluid" src="{% static 'image/partial engine assembly.jpg' %}" data-zoom-image="engine" alt="Zoom Image">
                         <div id="gallery" class="u-s-m-t-10">
                             <a class="active" data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                <img src="partial engine assembly.jpg" alt="Product">
+                                <img src="{% static 'image/partial engine assembly.jpg' %" alt="Product">
                             </a>
                             <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
                                 <img src="wheels.jpg" alt="Product">
@@ -759,72 +731,57 @@
                         <div class="section-1-title-breadcrumb-rating">
                             <div class="product-title">
                                 <h1>
-                                    <a href="single-product.html">Partial Engine Assembly</a>
+                                    <a href="{% url 'PartTest' %}">Partial Engine Assembly</a>
                                 </h1>
                             </div>
-                            <ul class="bread-crumb">
-                                <li class="has-separator">
-                                    <a href="home.html">Home</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v1-root-category.html">Toyota</a>
-                                </li>
-                                <li class="has-separator">
-                                    <a href="shop-v2-sub-category.html">Engine</a>
-                                </li>
-                                <li class="is-marked">
-                                    <a href="shop-v3-sub-sub-category.html">Engine Part</a>
-                                </li>
-                            </ul>
-                            <div class="product-rating">
-                                <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                    <span style='width:67px'></span>
-                                </div>
-                                <span>(23)</span>
-                            </div>
+                          
+                            
                         </div>
                         
                         
                         <div class="section-6-social-media-quantity-actions u-s-p-y-14">
                             <form action="#" class="post-form">
-                                <div class="quick-social-media-wrapper u-s-m-b-22">
-                                    <span>Share:</span>
-                                    <ul class="social-media-list">
-                                        <li>
-                                            <a href="#">
-                                                <i class="fab fa-facebook-f"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fab fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fab fa-google-plus-g"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fas fa-rss"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="fab fa-pinterest"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                
                                 <div class="quantity-wrapper u-s-m-b-22">
-                                    <span>Quantity:</span>
+                                    <span>Part No</span>
+                                    <div class="partno">
+                                        <input type="text" class="quantity-text-field" value="1">
+                                        <a class="plus-a" data-max="1000">&#43;</a>
+                                        <a class="minus-a" data-min="1">&#45;</a>
+                                    </div>
+                                   <br> 
+                                    <div>
+                                    <span>Part Year</span>
                                     <div class="quantity">
                                         <input type="text" class="quantity-text-field" value="1">
                                         <a class="plus-a" data-max="1000">&#43;</a>
                                         <a class="minus-a" data-min="1">&#45;</a>
                                     </div>
+                                    <br> <br> 
+                                     <div>
+                                    <span>Part Category</span>
+                                    <div class="quantity">
+                                        <input type="text" class="quantity-text-field" value="1">
+                                        <a class="plus-a" data-max="1000">&#43;</a>
+                                        <a class="minus-a" data-min="1">&#45;</a>
+                                    </div>
+                                    <br> <br> 
+                                     <div>
+                                    <span>Unit Price</span>
+                                    <div class="quantity">
+                                        <input type="text" class="quantity-text-field" value="1">
+                                        <a class="plus-a" data-max="1000">&#43;</a>
+                                        <a class="minus-a" data-min="1">&#45;</a>
+                                    </div>
+                                    <br> <br> 
+                                    <div>
+                                    <span>Stock</span>
+                                    <div class="quantity">
+                                        <input type="text" class="quantity-text-field" value="1">
+                                        
+                                    </div>
                                 </div>
+                                <br> 
                                 <div>
                                     <button class="button button-outline-secondary" type="submit" ><a href="cart.html">Add to Cart</a></button>
                                     <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
@@ -839,7 +796,7 @@
             <!-- Product-Detail /- -->
            
             <!-- Different-Product-Section -->
-            <div class="detail-different-product-section u-s-p-t-80">
+       
                 <!-- Similar-Products -->
                 <section class="section-maker">
                     <div class="container">
@@ -902,7 +859,7 @@
                                     </a>
                                     <div class="item-action-behaviors">
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                        <a class="item-mail" href="mailto:contact@domain.com">Mail</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -953,7 +910,7 @@
                                     </a>
                                     <div class="item-action-behaviors">
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                        <a class="item-mail" href="mailto:contact@domain.com">Mail</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -1004,7 +961,7 @@
                                     </a>
                                     <div class="item-action-behaviors">
                                         <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
-                                        <a class="item-mail" href="javascript:void(0)">Mail</a>
+                                        <a class="item-mail" href="mailto:contact@domain.com">Mail</a>
                                         <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
                                         <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
                                     </div>
@@ -1105,24 +1062,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <!-- Outer-Footer -->
-            <div class="outer-footer-wrapper u-s-p-y-80">
-                <h6>
-                    For special offers and other discount information
-                </h6>
-                <h1>
-                    Subscribe to our Newsletter
-                </h1>
-                <p>
-                    Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
-                </p>
-                <form class="newsletter-form">
-                    <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                    <input type="text" id="newsletter-field" placeholder="Your Email Address">
-                    <button type="submit" class="button">SUBMIT</button>
-                </form>
-            </div>
-            <!-- Outer-Footer /- -->
+          
             <!-- Mid-Footer -->
             <div class="mid-footer-wrapper u-s-p-b-80">
                 <div class="row">
@@ -1131,13 +1071,13 @@
                             <h6>CUSTOMER SERVICE</h6>
                             <ul>
                                 <li>
-                                    <a href="faq.html">FAQs</a>
+                                    <a href="{% url 'faq' %}">FAQs</a>
                                 </li>
                                 <li>
-                                    <a href="track-order.html">Track Order</a>
+                                    <a href="{% url 'track' %}">Track Order</a>
                                 </li>
                                 <li>
-                                    <a href="terms-and-conditions.html">Terms & Conditions</a>
+                                    <a href="{% url 'terms' %}">Terms & Conditions</a>
                                 </li>
                             </ul>
                         </div>
@@ -1147,13 +1087,13 @@
                             <h6>COMPANY</h6>
                             <ul>
                                 <li>
-                                    <a href="home.html">Home</a>
+                                    <a href="{% url 'home' %}">Home</a>
                                 </li>
                                 <li>
-                                    <a href="about.html">About</a>
+                                    <a href="{% url 'about' %}">About</a>
                                 </li>
                                 <li>
-                                    <a href="contact.html">Contact</a>
+                                    <a href="{% url 'contact' %}">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -1163,13 +1103,13 @@
                             <h6>INFORMATION</h6>
                             <ul>
                                 <li>
-                                    <a href="store-directory.html">Categories Directory</a>
+                                    <a href="{% url 'store' %}">Categories Directory</a>
                                 </li>
                                 <li>
-                                    <a href="wishlist.html">My Wishlist</a>
+                                    <a href="{% url 'wishlist' %}">My Wishlist</a>
                                 </li>
                                 <li>
-                                    <a href="cart.html">My Cart</a>
+                                    <a href="{% url 'cart' %}">My Cart</a>
                                 </li>
                             </ul>
                         </div>
@@ -1179,13 +1119,16 @@
                             <h6>Address</h6>
                             <ul>
                                 <li>
+                                    <a href= "https://www.google.com/maps/dir/3.0038222,101.7182172/PKT+Logistics+Group+Sdn+Bhd,+One+Logistics+Hub,+The+Ship,+No.+1,+Persiaran+Sungai+Hampar,+Section+32,+40460+Shah+Alam,+Selangor/@3.0204717,101.4778602,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc52723437c4e3:0xf2918f62fcce3b9a!2m2!1d101.5044873!2d2.9883034">
+                                        
+                                    </a>
                                     <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                    <span>819 Sugar Camp Road, West Concord, MN 55985</span>
+                                    <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
                                 </li>
                                 <li>
-                                    <a href="tel:+923086561801">
+                                    <a href="tel:+60123456789">
                                         <i class="fas fa-phone u-s-m-r-9"></i>
-                                        <span>+111-444-989</span>
+                                        <span>+60123456789</span>
                                     </a>
                                 </li>
                                 <li>
@@ -1242,8 +1185,8 @@
                         </li>
                     </ul>
                 </div>
-                <p class="copyright-text">Copyright &copy; 2018
-                    <a href="home.html">Groover</a> All Right Reserved</p>
+                <p class="copyright-text">Copyright &copy; 2021
+                    <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
             </div>
         </div>
         <!-- Bottom-Footer /- -->
@@ -1271,194 +1214,8 @@
         </div>
     </div>
     <!-- Responsive-Search /- -->
-    <!-- Quick-view-Modal -->
-    <div id="quick-view" class="modal fade">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="button dismiss-button ion ion-ios-close" data-dismiss="modal"></button>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <!-- Product-zoom-area -->
-                            <div class="zoom-area">
-                                <img id="zoom-pro-quick-view" class="img-fluid" src="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg" alt="Zoom Image">
-                                <div id="gallery-quick-view" class="u-s-m-t-10">
-                                    <a class="active" data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                    <a data-image="images/product/product@4x.jpg" data-zoom-image="images/product/product@4x.jpg">
-                                        <img src="images/product/product@2x.jpg" alt="Product">
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- Product-zoom-area /- -->
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <!-- Product-details -->
-                            <div class="all-information-wrapper">
-                                <div class="section-1-title-breadcrumb-rating">
-                                    <div class="product-title">
-                                        <h1>
-                                            <a href="single-product.html">Casual Hoodie Full Cotton</a>
-                                        </h1>
-                                    </div>
-                                    <ul class="bread-crumb">
-                                        <li class="has-separator">
-                                            <a href="home.html">Home</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-v1-root-category.html">Men's Clothing</a>
-                                        </li>
-                                        <li class="has-separator">
-                                            <a href="shop-v2-sub-category.html">Tops</a>
-                                        </li>
-                                        <li class="is-marked">
-                                            <a href="shop-v3-sub-sub-category.html">Hoodies</a>
-                                        </li>
-                                    </ul>
-                                    <div class="product-rating">
-                                        <div class='star' title="4.5 out of 5 - based on 23 Reviews">
-                                            <span style='width:67px'></span>
-                                        </div>
-                                        <span>(23)</span>
-                                    </div>
-                                </div>
-                                <div class="section-2-short-description u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Description:</h6>
-                                    <p>This hoodie is full cotton. It includes a muff sewn onto the lower front, and (usually) a drawstring to adjust the hood opening. Throughout the U.S., it is common for middle-school, high-school, and college students to wear this sweatshirts—with or without hoods—that display their respective school names or mascots across the chest, either as part of a uniform or personal preference.
-                                    </p>
-                                </div>
-                                <div class="section-3-price-original-discount u-s-p-y-14">
-                                    <div class="price">
-                                        <h4>$55.00</h4>
-                                    </div>
-                                    <div class="original-price">
-                                        <span>Original Price:</span>
-                                        <span>$60.00</span>
-                                    </div>
-                                    <div class="discount-price">
-                                        <span>Discount:</span>
-                                        <span>8%</span>
-                                    </div>
-                                    <div class="total-save">
-                                        <span>Save:</span>
-                                        <span>$5</span>
-                                    </div>
-                                </div>
-                                <div class="section-4-sku-information u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Sku Information:</h6>
-                                    <div class="availability">
-                                        <span>Availability:</span>
-                                        <span>In Stock</span>
-                                    </div>
-                                    <div class="left">
-                                        <span>Only:</span>
-                                        <span>50 left</span>
-                                    </div>
-                                </div>
-                                <div class="section-5-product-variants u-s-p-y-14">
-                                    <h6 class="information-heading u-s-m-b-8">Product Variants:</h6>
-                                    <div class="color u-s-m-b-11">
-                                        <span>Available Color:</span>
-                                        <div class="color-variant select-box-wrapper">
-                                            <select class="select-box product-color">
-                                                <option value="1">Heather Grey</option>
-                                                <option value="3">Black</option>
-                                                <option value="5">White</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="sizes u-s-m-b-11">
-                                        <span>Available Size:</span>
-                                        <div class="size-variant select-box-wrapper">
-                                            <select class="select-box product-size">
-                                                <option value="">Male 2XL</option>
-                                                <option value="">Male 3XL</option>
-                                                <option value="">Kids 4</option>
-                                                <option value="">Kids 6</option>
-                                                <option value="">Kids 8</option>
-                                                <option value="">Kids 10</option>
-                                                <option value="">Kids 12</option>
-                                                <option value="">Female Small</option>
-                                                <option value="">Male Small</option>
-                                                <option value="">Female Medium</option>
-                                                <option value="">Male Medium</option>
-                                                <option value="">Female Large</option>
-                                                <option value="">Male Large</option>
-                                                <option value="">Female XL</option>
-                                                <option value="">Male XL</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="section-6-social-media-quantity-actions u-s-p-y-14">
-                                    <form action="#" class="post-form">
-                                        <div class="quick-social-media-wrapper u-s-m-b-22">
-                                            <span>Share:</span>
-                                            <ul class="social-media-list">
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-google-plus-g"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fas fa-rss"></i>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i class="fab fa-pinterest"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="quantity-wrapper u-s-m-b-22">
-                                            <span>Quantity:</span>
-                                            <div class="quantity">
-                                                <input type="text" class="quantity-text-field" value="1">
-                                                <a class="plus-a" data-max="1000">&#43;</a>
-                                                <a class="minus-a" data-min="1">&#45;</a>
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <button class="button button-outline-secondary" type="submit">Add to cart</button>
-                                            <button class="button button-outline-secondary far fa-heart u-s-m-l-6"></button>
-                                            <button class="button button-outline-secondary far fa-envelope u-s-m-l-6"></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Product-details /- -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick-view-Modal /- -->
+ 
+    
 </div>
 <!-- app /- -->
 <!--[if lte IE 9]>
@@ -1470,28 +1227,29 @@
         </div>
     </div>
 </div>
-<style> #app {
-    display: none;
-} </style>
+
 <![endif]-->
 <!-- NoScript -->
+
 <style>
-    form.form-searchbox {
-        width: 80%;
-        margin-left: 100px;
-    }
-    
+form.form-searchbox {
+    width: 80%;
+    margin-left: 100px;
+}
+
+
+
+
 </style>
 <noscript>
     <div class="app-issue">
         <div class="vertical-center">
             <div class="text-center">
                 <h1>JavaScript is disabled in your browser.</h1>
-                <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser to register for Groover.</span>
+                <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser to register for Sparke Autoparts.</span>
             </div>
         </div>
     </div>
-   
 </noscript>
 <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
 <script>
@@ -1502,35 +1260,63 @@ ga.q = [];
 ga.l = +new Date;
 ga('create', 'UA-XXXXX-Y', 'auto');
 ga('send', 'pageview')
+
+
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+
 </script>
 <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 <!-- Modernizr-JS -->
-<script type="text/javascript" src="js/vendor/modernizr-custom.min.js"></script>
+<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
 <!-- NProgress -->
-<script type="text/javascript" src="js/nprogress.min.js"></script>
+<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
 <!-- jQuery -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.min.js"></script>
 <!-- Bootstrap JS -->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
 <!-- Popper -->
-<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="../static/js/popper.min.js"></script>
 <!-- ScrollUp -->
-<script type="text/javascript" src="js/jquery.scrollUp.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
 <!-- Elevate Zoom -->
-<script type="text/javascript" src="js/jquery.elevatezoom.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
 <!-- jquery-ui-range-slider -->
-<script type="text/javascript" src="js/jquery-ui.range-slider.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
 <!-- jQuery Slim-Scroll -->
-<script type="text/javascript" src="js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
 <!-- jQuery Resize-Select -->
-<script type="text/javascript" src="js/jquery.resize-select.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
 <!-- jQuery Custom Mega Menu -->
-<script type="text/javascript" src="js/jquery.custom-megamenu.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
 <!-- jQuery Countdown -->
-<script type="text/javascript" src="js/jquery.custom-countdown.min.js"></script>
+<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
 <!-- Owl Carousel -->
-<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
 <!-- Main -->
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="../static/js/app.js"></script>
 </body>
 </html>
+{% else %}
+You are not logged in
+
+{% endif %}
+{% endblock content %}
