@@ -84,11 +84,12 @@
     </script> 
   </head>
 
-  <div class="authenticate" style="margin: 10px;">
-  {% if user.is_authenticated %}
-  Hello {{ user.username }},
-
-</div>
+  <div class="authenticate" style="margin: 10px;"><strong>
+    {% if user.is_authenticated %}
+    Hello {{ user.username }},
+  
+  </strong></div>
+  
   <body>
 
     <!-- app -->
@@ -1177,6 +1178,10 @@ function showSlides() {
 </body>
 </html>
 {% else %}
-You are not logged in
+Please <a href="{% url 'customer_login' %}">Sign In</a>
+<br>
+
+If you have not created an account yet, then please <a href="{% url 'account_signup' %}">Sign up</a> first
 
 {% endif %}
+

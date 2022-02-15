@@ -10,18 +10,19 @@
 
 {% block content %}
 
-    <main class="content" style= "text-align: center;">
+    <main class="content" >
 
-       
+        <strong><h1> Customer</h1></strong>
+        <br>
         <form  method="POST" >
             {% csrf_token %}
           <fieldset class= "form-group">
-              <legend class = "border-bottom mb-4">User</legend>
+              
               {{ c_form|crispy}}
           </fieldset>
 
           <div class="form-group"> 
-              <button class = "btn button-outline-info" type="submit">Submit</button>
+              <button class = "btn btn-success" type="submit">Submit</button>
 
           </div>
         </form>

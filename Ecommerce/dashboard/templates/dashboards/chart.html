@@ -1,0 +1,213 @@
+<style>
+  .row{
+    margin-top: 3rem;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .chart{
+    background-color: white;
+    padding: 2rem;
+    height: 50vh;
+  }
+</style>
+
+<div class="row">
+  <div class="col-sm-3">
+    <div class="chart">
+      <h1>Add Data</h1>
+      <hr>
+
+      <div class="form-group">
+        <form action="." method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success">Save</button><a href="/dashboard/profit_data" class="btn btn-info" style="float: right; position: absolute;">View Data</a>
+
+        </form>
+        
+      </div>
+
+    </div> 
+  </div>
+  <div class="col-sm-9">
+    <div class = "chart">
+
+      <canvas id="profit"></canvas>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class = "chart">
+
+      <canvas id="user_count"></canvas>
+
+    </div>
+  </div>
+
+  <div class="col-sm-8">
+      <div class="chart">
+        <a href="../admin/account/emailaddress/" class = "btn btn-danger" style="float:right;">See all</a>
+        <canvas id="profit3"></canvas>
+
+      </div>
+  </div>
+</div>
+
+
+
+<script>
+//PROFIT GRAPH
+
+//setup
+  const data = {
+    labels: [{% for profit in profit %} '{{ profit.week }}', {% endfor %}],
+    datasets: [{
+        label: ['Profit per Week'],
+        data: [{% for profit in profit %} {{ profit.profit }}, {% endfor %}],
+        borderColor: [
+            'rgba(75, 192, 192, 1)',
+        ],
+        borderWidth: 2,
+    }]
+  }
+
+//config
+  const config = {
+    type: 'line',
+    data,
+    options: {
+    maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Weekly Profit Graph (in Malaysian Ringgit)'
+          },
+          subtitle: {
+              display: true,
+              text: 'Sparke Autoparts Weekly Profit'
+          }
+      },
+      animations: {
+          tension: {
+              duration: 1500,
+              easing: 'linear',
+              from: 0.5,
+              to: 0,
+          }
+      },
+    }
+  }
+
+//render init
+const profit = new Chart(
+  document.getElementById('profit'),
+  config 
+);
+
+//SUPPLIER DEALER GRAPH
+
+//setup
+const data2 = {
+    labels: ['Suppliers: Car', 'Suppliers: Truck & Used Parts', 'Dealers'],
+    datasets: [{
+        data: [{{car_supplier}}, {{truck_supplier}}, {{dealer_count}}],
+        backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 2
+    }]
+  }
+
+//config
+  const config2 = {
+    type: 'doughnut',
+    data : data2,
+    options: {
+    maintainAspectRatio: false,
+      plugins: {
+          title: {
+              display: true,
+              text: 'User Count'
+          },
+          subtitle: {
+              display: true,
+              text: 'Suppliers and Dealer'
+          }
+      },
+      animations: {
+          tension: {
+              duration: 1000,
+              easing: 'linear',
+              from: 0.5,
+              to: 0,
+          }
+      },
+    }
+  }
+
+//render init
+const user_count = new Chart(
+  document.getElementById('user_count'),
+  config2 
+);
+
+//BAR GRAPH
+
+//setup
+const data3 = {
+    labels: ['Verified', 'Not verified'],
+    datasets: [{
+        label: ['Verified and Not Verified Dealers'],
+        data: [{{verified}},{{not_verified}}],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)',
+          'rgba(255, 99, 132, 1)',
+        ],
+        borderWidth: 2,
+    }]
+  }
+
+//config
+  const config3 = {
+    type: 'bar',
+    data: data3,
+    options: {
+      indexAxis: 'y',
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+          title: {
+              display: true,
+              text: 'Verified Dealer'
+          },
+          subtitle: {
+              display: true,
+              text: 'Sparke Autoparts Verified Dealer'
+          }
+      },
+    }
+  }
+
+//render init
+const profit3 = new Chart(
+  document.getElementById('profit3'),
+  config3
+);
+</script>

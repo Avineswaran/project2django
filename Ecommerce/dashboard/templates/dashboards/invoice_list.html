@@ -1,0 +1,91 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.invoice {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .table-responsive {
+        height: 65%;
+    }
+    
+    .table-responsive thead th {
+        position: sticky;
+        top: 0;
+        padding: 9px;
+        text-align: center;
+        background-color: rgb(214, 214, 214);
+    }
+    
+    table {
+        width: 95%;
+        margin: auto;
+    }
+    
+    td {
+        padding: 8px;
+        text-align: center;
+        font-size: smaller;
+    }
+    
+    tr {
+        border: solid rgb(184, 184, 184);
+        border-width: 1px 0;
+    }
+</style>
+
+
+    <div class="container">
+        <div class="row" style="text-align: center;">
+            <h1 style="color: var(--main-color); font-size: 50px;  font-weight: bold;">
+                INVOICE LIST</h1>
+        </div>
+    </div>
+
+    <!--
+    <div class="container" style="width: 70%;">
+        <form method="GET">
+            <div class="row">
+                {{ filter.form}}
+            </div>
+            <div class="row" style="float: right;">
+                <button class="btn btn-danger">Search</button>
+            </div>
+        </form>
+    </div>
+    -->
+
+    <br>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr style="background: #f1f5f9;">
+                    <th>Invoice No</th>
+                    <th>Payment</th>
+                    <th>Order</th>
+                    <th>Created at</th>
+                    <th>Customer Contact</th>
+                    <th>Address</th>
+                    <th>Total Pay</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instance in object_list %}
+                <tr>
+                    <td>{{ instance.invoiceNo }}</td>
+                    <td>{{ instance.paymentID }}</td>
+                    <td>{{ instance.orderID }}</td>
+                    <td>{{ instance.invoiceDate }}</td>
+                    <td>{{ instance.custPhone }}</td>
+                    <td>{{ instance.custAddr }}</td>
+                    <td>{{ instance.totalPayment }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.dealers {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .table-responsive {
+        height: 78%;
+    }
+    
+    .table-responsive thead th {
+        position: sticky;
+        top: 0;
+        padding: 9px;
+        text-align: center;
+        background-color: rgb(214, 214, 214);
+    }
+    
+    table {
+        width: 95%;
+        margin: auto;
+    }
+    
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+    
+    tr {
+        border: solid rgb(184, 184, 184);
+        border-width: 1px 0;
+    }
+</style>
+
+    <div class="container">
+        <div class="row" style="text-align: center;">
+            <h1 style="color: var(--main-color); font-size: 50px; font-weight: bold;">
+                CUSTOMER ACCOUNT</h1>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr style="background: #f1f5f9;">
+                    <th>Customer Name</th>
+                    <th>Contact</th>
+                    <th>City</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instance in object_list %}
+                <tr>
+                    <td><a href="{{ instance.get_absolute_url }}">{{ instance.name }}</a></td>
+                    <td>{{ instance.phone }}</td>
+                    <td>{{ instance.city }}</td>
+                    <td>{{ instance.state }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

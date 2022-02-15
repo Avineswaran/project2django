@@ -39,14 +39,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'dashboard',
+    'supplier',
+    'dealer',
     'Sparke.apps.SparkeConfig',
     'crispy_forms',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'django.contrib.sites',
-    
-    
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -64,7 +66,7 @@ AUTHENTICATION_BACKENDS = [
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 ACCOUNT_EMAIL_REQUIRED = True 
 ACCOUNT_EMAIL_VERIFICATION = True 
-LOGIN_REDIRECT_URL = "/myaccount"
+LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/home"
 
 ACCOUNT_FORMS = {
@@ -115,7 +117,7 @@ DATABASES = {
          'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sparke',
         'USER':'root',
-        'PASSWORD':'',
+       'PASSWORD':'',
         'HOST':'localhost',
         'PORT': '3306',
 

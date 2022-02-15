@@ -1,0 +1,64 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.suppliers {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    p.text {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+</style>
+
+
+    <div class="container-fluid">
+        <p style="font-weight: bold; color: rgb(73, 73, 73); margin-bottom: -2rem;">SUPPLIER {{ object.supplierID }}</p>
+        <h1 style="color: var(--main-color); font-size: 50px;">{{ object.supplierName|upper }}</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <a>Supplier ID</a>
+                <p class="text">{{ object.supplierID }}</p>
+                <a>Vehicle Type</a>
+                <p class="text">{{ object.vehicleType }}</p>
+                <a>Part Category</a>
+                <p class="text">{{ object.partCategory }}</p>
+                <a>Address</a>
+                <p class="text">{{ object.streetAddr }}</p>
+                <a>City</a>
+                <p class="text">{{ object.city }}</p>
+                <a>State</a>
+                <p class="text">{{ object.state }}</p>
+                <a>Zip</a>
+                <p class="text">{{ object.postalCode }}</p>
+            </div>
+            <div class="col-sm-6">
+                <a>Brand</a>
+                <p class="text">{{ object.brand }}</p>
+                <a>Billing Method</a>
+                <p class="text">{{ object.billingMethod }}</p>
+                <a>Transaction Term</a>
+                <p class="text">{{ object.transactionTerm }}</p>
+                <a>Longitude</a>
+                <p class="text">{{ object.longitude }}</p>
+                <a>Latitude</a>
+                <p class="text">{{ object.latitude }}</p>
+                <a>Total Supplier Point</a>
+                <p class="text">{{ object.totalSupPts }}</p>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-success" href="update"> Update</a>
+            <a class="btn btn-danger" href="delete"> Delete</a>
+        </div>
+    </div>
+
+
+
+{% endblock %}

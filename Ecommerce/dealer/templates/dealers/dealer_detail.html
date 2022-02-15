@@ -1,0 +1,107 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.dealers {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .delete {
+        background-color: red;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        float: right;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    
+    .update {
+        background-color: rgb(136, 136, 136);
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        float: right;
+    }
+    
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: 0 -16px;
+    }
+    
+    .col-25 {
+        -ms-flex: 25%;
+        flex: 25%;
+    }
+    
+    .col-50 {
+        -ms-flex: 50%;
+        flex: 50%;
+    }
+    
+    .col-75 {
+        -ms-flex: 75%;
+        flex: 75%;
+    }
+    
+    .col-25,
+    .col-50,
+    .col-75 {
+        padding: 0 16px;
+    }
+    
+    .container {
+        background-color: #ffffff;
+        padding: 15px 20px 15px 20px;
+        border-radius: 3px;
+    }
+    
+    p.text {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    
+    @media (max-width: 800px) {
+        .row {
+            flex-direction: column;
+        }
+        .col-25 {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+    <div class="container-fluid">
+        <p style="font-weight: bold; color: rgb(73, 73, 73); margin-bottom: -2rem;">ACCOUNT {{ object.dealerID }}</p>
+        <h1 style="color: var(--main-color); font-size: 50px;">{{ object.name|upper }}</h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <a>Username</a>
+                <p class="text">{{ object.user }}</p>
+                <a>Name</a>
+                <p class="text">{{ object.name }}</p>
+                <a>Contact</a>
+                <p class="text">{{ object.phone }}</p>
+            </div>
+            <div class="col-sm-6">
+                <a>Address</a>
+                <p class="text">{{ object.address }}</p>
+                <a>City</a>
+                <p class="text">{{ object.city }}</p>
+                <a>Zip</a>
+                <p class="text">{{ object.postalCode }}</p>
+                <a>State</a>
+                <p class="text">{{ object.state }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

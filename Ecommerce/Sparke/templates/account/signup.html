@@ -1,9 +1,4 @@
-
-{% load i18n %}
-{% block content %}
-{% load static %}
-{% load i18n %}
-{% load crispy_forms_tags %}
+ {% load i18n %} {% block content %} {% load static %} {% load i18n %} {% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html class="no-js" lang="en-US">
 
@@ -16,8 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sparke Autoparts - Online Automation Trading Management System</title>
-    
-    
+
+
     <!-- Standard Favicon -->
     <link href="favicon.ico" rel="shortcut icon">
     <!-- Base Google Font for Web-app -->
@@ -44,305 +39,335 @@
 
 <body>
 
-<!-- app -->
-<div id="app">
-    <!-- Header -->
-    <header>
-        <!-- Top-Header -->
-        <div class="full-layer-outer-header">
-            <div class="container clearfix">
-                <nav>
-                    <ul class="primary-nav g-nav">
-                        <li>
-                            <a href="tel:+60123456789">
-                                <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
-                                Telephone:+60123456789</a>
-                        </li>
-                        <li>
-                            <a href="mailto:contact@domain.com">
-                                <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
-                                E-mail: contact@domain.com
-                            </a>
-                        </li>
+    <!-- app -->
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <!-- Top-Header -->
+            <div class="full-layer-outer-header">
+                <div class="container clearfix">
+                    <nav>
+                        <ul class="primary-nav g-nav">
+                            <li>
+                                <a href="tel:+60123456789">
+                                    <i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Telephone:+60123456789
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@domain.com">
+                                    <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> E-mail: contact@domain.com
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="{% url 'account' %}">
+                            <li>
+                                <a href="{% url 'account_login' %}">
                                 
-                                NEED HELP?
+                                ADMIN
                             </a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav>
-                    <ul class="secondary-nav g-nav">
-                        <li>
-                            <a>My Account
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul class="secondary-nav g-nav">
+                            <li>
+                                <a>My Account
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
                             </a>
-                            <ul class="g-dropdown" style="width:200px">
-                        
-                                <li>
-                                    <a href="{% url 'account_signup' %}">
-                                        <i class="far fa-check-circle u-s-m-r-9"></i>
-                                        Register</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'account_login' %}">
-                                        <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                        Login </a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li>
-                            <a>ENG
+                                <ul class="g-dropdown" style="width:200px">
+
+                                    <li>
+                                        <a href="{% url 'account_signup' %}">
+                                            <i class="far fa-check-circle u-s-m-r-9"></i> Register
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'customer_login' %}">
+                                            <i class="fas fa-sign-in-alt u-s-m-r-9"></i> Login </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a>ENG
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
                             </a>
-                            <ul class="g-dropdown" style="width:70px">
-                                <li>
-                                    <a href="#" class="u-c-brand">ENG</a>
-                                </li>
-                                <li>
-                                    <a href="#">MALAY</a>
-                                </li>
-                            </ul>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- Top-Header /- -->
-        <!-- Mid-Header -->
-        <div class="full-layer-mid-header">
-            <div class="container">
-                <div class="row clearfix align-items-center">
-                    <div class="col-lg-3 col-md-9 col-sm-6">
-                        <div class="brand-logo text-lg-center">
-                            <a href="{% url 'home' %}">
-                                <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    
+                                <ul class="g-dropdown" style="width:70px">
+                                    <li>
+                                        <a href="#" class="u-c-brand">ENG</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MALAY</a>
+                                    </li>
+                                </ul>
+                        </ul>
+                    </nav>
                 </div>
             </div>
-        </div>
-        <!-- Mid-Header /- -->
-        <!-- Responsive-Buttons -->
-        <div class="fixed-responsive-container">
-            <div class="fixed-responsive-wrapper">
-                <button type="button" class="button fas fa-search" id="responsive-search"></button>
+            <!-- Top-Header /- -->
+            <!-- Mid-Header -->
+            <div class="full-layer-mid-header">
+                <div class="container">
+                    <div class="row clearfix align-items-center">
+                        <div class="col-lg-3 col-md-9 col-sm-6">
+                            <div class="brand-logo text-lg-center">
+                                <a href="{% url 'home' %}">
+                                    <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-            <div class="fixed-responsive-wrapper">
-                <a href="{% url 'wishlist' %}">
-                    <i class="far fa-heart"></i>
-                    <span class="fixed-item-counter">3</span>
-                </a>
+            <!-- Mid-Header /- -->
+            <!-- Responsive-Buttons -->
+            <div class="fixed-responsive-container">
+                <div class="fixed-responsive-wrapper">
+                    <button type="button" class="button fas fa-search" id="responsive-search"></button>
+                </div>
+                <div class="fixed-responsive-wrapper">
+                    <a href="{% url 'wishlist' %}">
+                        <i class="far fa-heart"></i>
+                        <span class="fixed-item-counter">3</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Responsive-Buttons /- -->
+
+
+            <!-- Header /- -->
+
+            <!-- Account-Page -->
+            <div class="page-account u-s-p-t-80">
+                <div class="container">
+                    <div class="row">
+                        <!-- Register -->
+                        <div class="col-lg-6">
+                            <div class="reg-wrapper">
+                               <strong> <h1 class="account-h2 u-s-m-b-20">Register</h1></strong>
+                                <h4 class="account-h6 u-s-m-b-30">Registering for this site allows you to access View Parts Catalogue </h4>
+                                
+                                <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+                                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                                    {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                                    <input type="text" name="{{ last_name }}" value="{{ last_name }}" />
+                                    <input type="text" name="{{ last_name }}" value="{{ last_name }}" /> {% endif %}
+                                    <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Register /- -->
+
+    
+
+                    </div>
+                </div>
+            </div>
+            <!-- Account-Page /- -->
+
+            <br><br><br>
+ <!-- Main-Slider -->
+
+ <div class="default-height ph-item">
+    <div class="slider-main owl-carousel">
+        <div class="bg-image one">
+            <div class="slide-content slide-animation">
+
+                <img src="{% static 'image/wallpaper3.jpg' %}" style="width:100%">
             </div>
         </div>
-        <!-- Responsive-Buttons /- -->
-        
 
-<!-- Header /- -->
+        <div class="bg-image two">
+            <div class="slide-content slide-animation">
 
-     <!-- Account-Page -->
-     <div class="page-account u-s-p-t-80">
-        <div class="container">
-            <div class="row">
-               <!-- Register -->
-                <div class="col-lg-6">
-                    <div class="reg-wrapper">
-                        <h1 class="account-h2 u-s-m-b-20">Register</h1>
-                        <h6 class="account-h6 u-s-m-b-30">Registering for this site allows you to access your order status and history.</h6>
-                        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+                <img src="{% static 'image/wallpaper4.jpg' %}" style="width:100%">
+            </div>
+        </div>
 
-                        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            {% if redirect_field_value %}
-                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                            <input type="text" name="{{ last_name }}" value="{{ last_name }}" />
-                            <input type="text" name="{{ last_name }}" value="{{ last_name }}" />
-                            {% endif %}
-                            <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
+        <div class="bg-image three">
+            <div class="slide-content slide-animation">
+
+                <img src="{% static 'image/HD6.jpg' %}" style="width:100%">
+            </div>
+        </div>
+        <div class="bg-image four">
+            <div class="slide-content slide-animation">
+
+                <img src="{% static 'image/wallpaper6.jpg' %}" style="width:100%">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+</div>
+
+
+<!-- Main-Slider /- -->
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+<br><br><br>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+              
+                    <!-- Mid-Footer -->
+                    <div class="mid-footer-wrapper u-s-p-b-80">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="footer-list">
+                                    <h6>CUSTOMER SERVICE</h6>
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'faq' %}">FAQs</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'track' %}">Track Order</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'terms' %}">Terms & Conditions</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="footer-list">
+                                    <h6>COMPANY</h6>
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'home' %}">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'about' %}">About</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'contact' %}">Contact</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="footer-list">
+                                    <h6>INFORMATION</h6>
+                                    <ul>
+                                        <li>
+                                            <a href="{% url 'store' %}">Categories Directory</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'wishlist' %}">My Wishlist</a>
+                                        </li>
+                                        <li>
+                                            <a href="{% url 'cart' %}">My Cart</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="footer-list">
+                                    <h6>Address</h6>
+                                    <ul>
+                                        <li>
+                                            <i class="fas fa-location-arrow u-s-m-r-9"></i>
+                                            <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+60123456789">
+                                                <i class="fas fa-phone u-s-m-r-9"></i>
+                                                <span>+60123456789</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:contact@domain.com">
+                                                <i class="fas fa-envelope u-s-m-r-9"></i>
+                                                <span>
+                                            contact@domain.com</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mid-Footer /- -->
+                    <!-- Bottom-Footer -->
+                    <div class="bottom-footer-wrapper">
+                        <div class="social-media-wrapper">
+                            <ul class="social-media-list">
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-google-plus-g"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-rss"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-pinterest"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="copyright-text">Copyright &copy; 2021
+                            <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
+                    </div>
+                </div>
+                <!-- Bottom-Footer /- -->
+            </footer>
+            <!-- Footer /- -->
+            <!-- Dummy Selectbox -->
+            <div class="select-dummy-wrapper">
+                <select id="compute-select">
+            <option id="compute-option">All</option>
+        </select>
+            </div>
+            <!-- Dummy Selectbox /- -->
+            <!-- Responsive-Search -->
+            <div class="responsive-search-wrapper">
+                <button type="button" class="button ion ion-md-close" id="responsive-search-close-button"></button>
+                <div class="responsive-search-container">
+                    <div class="container">
+                        <p>Start typing and press Enter to search</p>
+                        <form class="responsive-search-form">
+                            <label class="sr-only" for="search-text">Search</label>
+                            <input id="search-text" type="text" class="responsive-search-field" placeholder="PLEASE SEARCH">
+                            <i class="fas fa-search"></i>
                         </form>
                     </div>
                 </div>
-                <!-- Register /- -->
             </div>
-        </div>
+            <!-- Responsive-Search /- -->
     </div>
-    <!-- Account-Page /- -->
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <!-- Outer-Footer -->
-            <div class="outer-footer-wrapper u-s-p-y-80">
-                
-                <h1>
-                    To order the Car Parts Customers 
-                </h1>
-                <h4>
-                    Register and Login 
-                </h4>
-                <form class="newsletter-form">
-                    <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                    <input type="text" id="newsletter-field" placeholder="Your Email Address">
-                    <button type="submit" class="button">SUBMIT</button>
-                </form>
-            </div>
-            <!-- Outer-Footer /- -->
-            <!-- Mid-Footer -->
-            <div class="mid-footer-wrapper u-s-p-b-80">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="footer-list">
-                            <h6>CUSTOMER SERVICE</h6>
-                            <ul>
-                                <li>
-                                    <a href="{% url 'faq' %}">FAQs</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'track' %}">Track Order</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'terms' %}">Terms & Conditions</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="footer-list">
-                            <h6>COMPANY</h6>
-                            <ul>
-                                <li>
-                                    <a href="{% url 'home' %}">Home</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'about' %}">About</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'contact' %}">Contact</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="footer-list">
-                            <h6>INFORMATION</h6>
-                            <ul>
-                                <li>
-                                    <a href="{% url 'store' %}">Categories Directory</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'wishlist' %}">My Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'cart' %}">My Cart</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                        <div class="footer-list">
-                            <h6>Address</h6>
-                            <ul>
-                                <li>
-                                    <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                    <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
-                                </li>
-                                <li>
-                                    <a href="tel:+60123456789">
-                                        <i class="fas fa-phone u-s-m-r-9"></i>
-                                        <span>+60123456789</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="mailto:contact@domain.com">
-                                        <i class="fas fa-envelope u-s-m-r-9"></i>
-                                        <span>
-                                            contact@domain.com</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mid-Footer /- -->
-            <!-- Bottom-Footer -->
-            <div class="bottom-footer-wrapper">
-                <div class="social-media-wrapper">
-                    <ul class="social-media-list">
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-google-plus-g"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-rss"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-pinterest"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <p class="copyright-text">Copyright &copy; 2021
-                    <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
-            </div>
-        </div>
-        <!-- Bottom-Footer /- -->
-    </footer>
-    <!-- Footer /- -->
-    <!-- Dummy Selectbox -->
-    <div class="select-dummy-wrapper">
-        <select id="compute-select">
-            <option id="compute-option">All</option>
-        </select>
-    </div>
-    <!-- Dummy Selectbox /- -->
-    <!-- Responsive-Search -->
-    <div class="responsive-search-wrapper">
-        <button type="button" class="button ion ion-md-close" id="responsive-search-close-button"></button>
-        <div class="responsive-search-container">
-            <div class="container">
-                <p>Start typing and press Enter to search</p>
-                <form class="responsive-search-form">
-                    <label class="sr-only" for="search-text">Search</label>
-                    <input id="search-text" type="text" class="responsive-search-field" placeholder="PLEASE SEARCH">
-                    <i class="fas fa-search"></i>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Responsive-Search /- -->
-</div>
-<!-- app /- -->
-<!--[if lte IE 9]>
+    <!-- app /- -->
+    <!--[if lte IE 9]>
 <div class="app-issue">
     <div class="vertical-center">
         <div class="text-center">
@@ -355,21 +380,17 @@
     display: none;
 } </style>
 <![endif]-->
-<!-- NoScript -->
+    <!-- NoScript -->
 
 
-<style>
-    form.form-searchbox {
-        width: 80%;
-        margin-left: 100px;
-    }
-    
-    
-    
-    
+    <style>
+        form.form-searchbox {
+            width: 80%;
+            margin-left: 100px;
+        }
     </style>
 
-<noscript>
+    <noscript>
     <div class="app-issue">
         <div class="vertical-center">
             <div class="text-center">
@@ -380,46 +401,47 @@
     </div>
   
 </noscript>
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script>
-window.ga = function() {
-    ga.q.push(arguments)
-};
-ga.q = [];
-ga.l = +new Date;
-ga('create', 'UA-XXXXX-Y', 'auto');
-ga('send', 'pageview')
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
-<!-- Modernizr-JS -->
-<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
-<!-- NProgress -->
-<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-<!-- Popper -->
-<script type="text/javascript" src="../static/js/popper.min.js"></script>
-<!-- ScrollUp -->
-<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
-<!-- Elevate Zoom -->
-<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
-<!-- jquery-ui-range-slider -->
-<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
-<!-- jQuery Slim-Scroll -->
-<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
-<!-- jQuery Resize-Select -->
-<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
-<!-- jQuery Custom Mega Menu -->
-<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
-<!-- jQuery Countdown -->
-<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
-<!-- Owl Carousel -->
-<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
-<!-- Main -->
-<script type="text/javascript" src="../static/js/app.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function() {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <!-- Modernizr-JS -->
+    <script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
+    <!-- NProgress -->
+    <script type="text/javascript" src="../static/js/nprogress.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <!-- Popper -->
+    <script type="text/javascript" src="../static/js/popper.min.js"></script>
+    <!-- ScrollUp -->
+    <script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
+    <!-- Elevate Zoom -->
+    <script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
+    <!-- jquery-ui-range-slider -->
+    <script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
+    <!-- jQuery Slim-Scroll -->
+    <script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
+    <!-- jQuery Resize-Select -->
+    <script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
+    <!-- jQuery Custom Mega Menu -->
+    <script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
+    <!-- jQuery Countdown -->
+    <script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
+    <!-- Main -->
+    <script type="text/javascript" src="../static/js/app.js"></script>
 </body>
+
 </html>
 
 

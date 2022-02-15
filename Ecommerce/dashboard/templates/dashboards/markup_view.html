@@ -1,0 +1,61 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.markup {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+    
+    .table-responsive thead th {
+        position: sticky;
+        top: 0;
+        padding: 9px;
+        text-align: center;
+        background-color: rgb(214, 214, 214);
+    }
+    
+    table {
+        width: 95%;
+        margin: auto;
+    }
+    
+    td {
+        padding: 8px;
+        text-align: center;
+    }
+    
+    tr {
+        border: solid rgb(184, 184, 184);
+        border-width: 1px 0;
+    }
+</style>
+
+    <div class="container">
+        <div class="row" style="text-align: center;">
+            <h1 style="color: var(--main-color); font-size: 50px; font-weight: bold;">
+                MARK UP PERCENTAGE</h1>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table>
+            <thead>
+                <tr style="background: #f1f5f9;">
+                    <th>Markup Type</th>
+                    <th>Percentage(%)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for instance in object_list %}
+                <tr>
+                    <td><a href="{{ instance.get_absolute_url }}">{{ instance.category }}</a>
+                        <td>{{ instance.percentage_value }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+{% endblock %}

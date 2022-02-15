@@ -1,11 +1,4 @@
-
-
-{% load i18n %}
-{% load static %}
-
-
-
-{% block content %}
+ {% load i18n %} {% load static %} {% block content %}
 
 
 <head>
@@ -17,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Sparke Autoparts - Online Automation Trading Management System</title>
-    
-    
+
+
     <!-- Standard Favicon -->
     <link href="favicon.ico" rel="shortcut icon">
     <!-- Base Google Font for Web-app -->
@@ -44,123 +37,116 @@
 
 
     <style type="text/css">
-	
- 
-		.main{
-			margin-left:50px;
-			padding: 10px 20px;
-		}
-
-        .title{
-			margin-left:100px;
-			padding: 10px 20px;
-		}
-
-        .p{
-			margin-left:10px;
-			padding: 10px 20px;
-		}
- 
-	</style>
+        .main {
+            margin-left: 50px;
+            padding: 10px 20px;
+        }
+        
+        .title {
+            margin-left: 100px;
+            padding: 10px 20px;
+        }
+        
+        .p {
+            margin-left: 10px;
+            padding: 10px 20px;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- app -->
-<div id="app">
-    <!-- Header -->
-    <header>
-        <!-- Top-Header -->
-        <div class="full-layer-outer-header">
-            <div class="container clearfix">
-                <nav>
-                    <ul class="primary-nav g-nav">
-                        <li>
-                            <a href="tel:+60123456789">
-                                <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
-                                Telephone:+60123456789</a>
-                        </li>
-                        <li>
-                            <a href="mailto:contact@domain.com">
-                                <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
-                                E-mail: contact@domain.com
-                            </a>
-                        </li>
+    <!-- app -->
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <!-- Top-Header -->
+            <div class="full-layer-outer-header">
+                <div class="container clearfix">
+                    <nav>
+                        <ul class="primary-nav g-nav">
+                            <li>
+                                <a href="tel:+60123456789">
+                                    <i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Telephone:+60123456789
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@domain.com">
+                                    <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> E-mail: contact@domain.com
+                                </a>
+                            </li>
 
-                        <li>
-                            <a href="{% url 'account' %}">
+                            <li>
+                                <a href="{% url 'account_login' %}">
                                 
-                                Seller Center
+                                Admin
                             </a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav>
-                    <ul class="secondary-nav g-nav">
-                        <li>
-                            <a>My Account
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul class="secondary-nav g-nav">
+                            <li>
+                                <a>My Account
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
                             </a>
-                            <ul class="g-dropdown" style="width:200px">
-                                <li>
-                                    <a href="{% url 'cart' %}">
-                                        <i class="fas fa-cog u-s-m-r-9"></i>
-                                        My Cart</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'wishlist' %}">
-                                        <i class="far fa-heart u-s-m-r-9"></i>
-                                        My Wishlist</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'checkout' %}">
-                                        <i class="far fa-check-circle u-s-m-r-9"></i>
-                                        Checkout</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'account' %}">
-                                        <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                        Login / Signup</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li>
-                            <a>ENG
+                                <ul class="g-dropdown" style="width:200px">
+                                    <li>
+                                        <a href="{% url 'cart' %}">
+                                            <i class="fas fa-cog u-s-m-r-9"></i> My Cart</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'wishlist' %}">
+                                            <i class="far fa-heart u-s-m-r-9"></i> My Wishlist</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'checkout' %}">
+                                            <i class="far fa-check-circle u-s-m-r-9"></i> Checkout
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'account' %}">
+                                            <i class="fas fa-sign-in-alt u-s-m-r-9"></i> Login / Signup</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a>ENG
                                 <i class="fas fa-chevron-down u-s-m-l-9"></i>
                             </a>
-                            <ul class="g-dropdown" style="width:70px">
-                                <li>
-                                    <a href="#" class="u-c-brand">ENG</a>
-                                </li>
-                                <li>
-                                    <a href="#">MALAY</a>
-                                </li>
-                            </ul>
-                    </ul>
-                </nav>
+                                <ul class="g-dropdown" style="width:70px">
+                                    <li>
+                                        <a href="#" class="u-c-brand">ENG</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MALAY</a>
+                                    </li>
+                                </ul>
+                        </ul>
+                    </nav>
+                </div>
             </div>
-        </div>
-        <!-- Top-Header /- -->
-        <!-- Mid-Header -->
-        <div class="full-layer-mid-header">
-            <div class="container">
-                <div class="row clearfix align-items-center">
-                    <div class="col-lg-3 col-md-9 col-sm-6">
-                        <div class="brand-logo text-lg-center">
-                            <a href="{% url 'home' %}">
-                                <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
-                            </a>
+            <!-- Top-Header /- -->
+            <!-- Mid-Header -->
+            <div class="full-layer-mid-header">
+                <div class="container">
+                    <div class="row clearfix align-items-center">
+                        <div class="col-lg-3 col-md-9 col-sm-6">
+                            <div class="brand-logo text-lg-center">
+                                <a href="{% url 'home' %}">
+                                    <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 u-d-none-lg">
-                        <form class="form-searchbox" action="https://toyota.epc-data.com/vellfire/ggh25w/63454/">
-                            <label class="sr-only" for="search-landscape">Search</label>
-                            <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
-                            <div class="select-box-position">
-                                <div class="select-box-wrapper select-hide">
-                                    <label class="sr-only" for="select-category">Choose parts Category</label>
-                                    <select class="select-box" id="select-category">
+                        <div class="col-lg-6 u-d-none-lg">
+                            <form class="form-searchbox" action="https://toyota.epc-data.com/vellfire/ggh25w/63454/">
+                                <label class="sr-only" for="search-landscape">Search</label>
+                                <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
+                                <div class="select-box-position">
+                                    <div class="select-box-wrapper select-hide">
+                                        <label class="sr-only" for="select-category">Choose parts Category</label>
+                                        <select class="select-box" id="select-category">
                                         <option selected="selected" value="">
                                             All
                                         </option>
@@ -180,281 +166,286 @@
                                         <option value="">Wheels
 
                                     </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
-                        </form>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6">
-                        <nav>
-                            <ul class="mid-nav g-nav">
-                                <li class="u-d-none-lg">
-                                    <a href="{% url 'home' %}">
-                                        <i class="ion ion-md-home u-c-brand"></i>
-                                    </a>
-                                </li>
-                                <li class="u-d-none-lg">
-                                    <a href="{% url 'wishlist' %}">
-                                        <i class="far fa-heart"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a id="mini-cart-trigger">
-                                        <i class="ion ion-md-basket"></i>
-                                       
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                                <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <nav>
+                                <ul class="mid-nav g-nav">
+                                    <li class="u-d-none-lg">
+                                        <a href="{% url 'home' %}">
+                                            <i class="ion ion-md-home u-c-brand"></i>
+                                        </a>
+                                    </li>
+                                    <li class="u-d-none-lg">
+                                        <a href="{% url 'wishlist' %}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="mini-cart-trigger">
+                                            <i class="ion ion-md-basket"></i>
+
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Mid-Header /- -->
-        
+            <!-- Mid-Header /- -->
 
-<!-- Header /- -->
-<!-- Main-Slider -->
 
-<div class="default-height ph-item">
-<div class="slider-main owl-carousel">
-    <div class="bg-image one">
-        <div class="slide-content slide-animation">
-            
-            <img src="{% static 'image/wallpaper3.jpg' %}" style="width:100%">
-        </div>
+            <!-- Header /- -->
+            <!-- Main-Slider -->
+
+            <div class="default-height ph-item">
+                <div class="slider-main owl-carousel">
+                    <div class="bg-image one">
+                        <div class="slide-content slide-animation">
+
+                            <img src="{% static 'image/wallpaper7.jpg' %}" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="bg-image two">
+                        <div class="slide-content slide-animation">
+
+                            <img src="{% static 'image/wallpaper6.jpg' %}" style="width:100%">
+                        </div>
+                    </div>
+
+                    <div class="bg-image three">
+                        <div class="slide-content slide-animation">
+                            <h1>STOCK</h1>
+                            <img src="{% static 'image/wallpaper5.jpg' %}" style="width:100%">
+                        </div>
+                    </div>
+                    <div class="bg-image four">
+                        <div class="slide-content slide-animation">
+                            <h1>STOCK</h1>
+                            <img src="{% static 'image/wallpaper8.jpeg' %}" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
     </div>
-
-    <div class="bg-image two" >
-        <div class="slide-content slide-animation">
-            
-            <img src="{% static 'image/wallpaper4.jpg' %}" style="width:100%">
-        </div>
-    </div>
-
-    <div class="bg-image two" >
-        <div class="slide-content slide-animation">
-            <h1>STOCK</h1>
-            <img src="{% static 'image/h3.jpg' %}" style="width:100%">
-        </div>
-    </div>
-    <div class="bg-image three">
-        <div class="slide-content slide-animation">
-            <h1>STOCK</h1>
-            <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
-        </div>
-        </div>
-    </div>
-
-    
-</div>
-</div>
-<!-- Main-Slider /- -->
-
+    <!-- Main-Slider /- -->
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
 
 
 
     <h1 class="title">{% trans "Verify Your E-mail Address" %}</h1>
 
-    <p class ="p">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+    <p class="p">{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
 
     <div class="main">
 
         <strong>Menu:</strong>
         <ul>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-          <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-          {% else %}
-          <li><a href="{% url 'account_login' %}">Sign In</a></li>
-          <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-          {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            {% else %}
+            <li><a href="{% url 'customer_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
         </ul>
-      </div>
- <br>
- <br>
-    <!-- Footer -->
-<footer class="footer">
-    <div class="container">
-       
-        <!-- Mid-Footer -->
-        <div class="mid-footer-wrapper u-s-p-b-80">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                    <div class="footer-list">
-                        <h6>CUSTOMER SERVICE</h6>
-                        <ul>
-                            <li>
-                                <a href="{% url 'faq' %}">FAQs</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'track' %}">Track Order</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'terms' %}">Terms & Conditions</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                    <div class="footer-list">
-                        <h6>COMPANY</h6>
-                        <ul>
-                            <li>
-                                <a href="{% url 'home' %}">Home</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'about' %}">About</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'contact' %}">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                    <div class="footer-list">
-                        <h6>INFORMATION</h6>
-                        <ul>
-                            <li>
-                                <a href="{% url 'store' %}">Categories Directory</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'wishlist' %}">My Wishlist</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'cart' %}">My Cart</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-12">
-                    <div class="footer-list">
-                        <h6>Address</h6>
-                        <ul>
-                            <li>
-                                <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
-                            </li>
-                            <li>
-                                <a href="tel:+60123456789">
-                                    <i class="fas fa-phone u-s-m-r-9"></i>
-                                    <span>+60123456789</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="mailto:contact@domain.com">
-                                    <i class="fas fa-envelope u-s-m-r-9"></i>
-                                    <span>
-                                        contact@domain.com</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Mid-Footer /- -->
-        <!-- Bottom-Footer -->
-        <div class="bottom-footer-wrapper">
-            <div class="social-media-wrapper">
-                <ul class="social-media-list">
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-google-plus-g"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-rss"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p class="copyright-text">Copyright &copy; 2021
-                <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
-        </div>
     </div>
-    <!-- Bottom-Footer /- -->
-</footer>
-<!-- Footer /- -->
-<!-- Dummy Selectbox -->
-<div class="select-dummy-wrapper">
-    <select id="compute-select">
+    <br>
+    <br>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+
+            <!-- Mid-Footer -->
+            <div class="mid-footer-wrapper u-s-p-b-80">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>CUSTOMER SERVICE</h6>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'faq' %}">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'track' %}">Track Order</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'terms' %}">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>COMPANY</h6>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'home' %}">Home</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'about' %}">About</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'contact' %}">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>INFORMATION</h6>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'store' %}">Categories Directory</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'wishlist' %}">My Wishlist</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'cart' %}">My Cart</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="footer-list">
+                            <h6>Address</h6>
+                            <ul>
+                                <li>
+                                    <i class="fas fa-location-arrow u-s-m-r-9"></i>
+                                    <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
+                                </li>
+                                <li>
+                                    <a href="tel:+60123456789">
+                                        <i class="fas fa-phone u-s-m-r-9"></i>
+                                        <span>+60123456789</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="mailto:contact@domain.com">
+                                        <i class="fas fa-envelope u-s-m-r-9"></i>
+                                        <span>
+                                        contact@domain.com</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mid-Footer /- -->
+            <!-- Bottom-Footer -->
+            <div class="bottom-footer-wrapper">
+                <div class="social-media-wrapper">
+                    <ul class="social-media-list">
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-rss"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="copyright-text">Copyright &copy; 2021
+                    <a href="{% url 'home' %}">Sparke Autoparts</a> All Right Reserved</p>
+            </div>
+        </div>
+        <!-- Bottom-Footer /- -->
+    </footer>
+    <!-- Footer /- -->
+    <!-- Dummy Selectbox -->
+    <div class="select-dummy-wrapper">
+        <select id="compute-select">
         <option id="compute-option">All</option>
     </select>
-</div>
-<!-- Dummy Selectbox /- -->
+    </div>
+    <!-- Dummy Selectbox /- -->
 
 
 
-<style>
-form.form-searchbox {
-    width: 80%;
-    margin-left: 100px;
-}
-
-</style>
-
+    <style>
+        form.form-searchbox {
+            width: 80%;
+            margin-left: 100px;
+        }
+    </style>
 
 
 
 
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
-<!-- Modernizr-JS -->
-<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
-<!-- NProgress -->
-<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-<!-- Popper -->
-<script type="text/javascript" src="../static/js/popper.min.js"></script>
-<!-- ScrollUp -->
-<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
-<!-- Elevate Zoom -->
-<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
-<!-- jquery-ui-range-slider -->
-<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
-<!-- jQuery Slim-Scroll -->
-<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
-<!-- jQuery Resize-Select -->
-<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
-<!-- jQuery Custom Mega Menu -->
-<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
-<!-- jQuery Countdown -->
-<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
-<!-- Owl Carousel -->
-<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
-<!-- Main -->
-<script type="text/javascript" src="../static/js/app.js"></script>
 
-<script type="text/javascript" src="../static/js/cart.js"></script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <!-- Modernizr-JS -->
+    <script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
+    <!-- NProgress -->
+    <script type="text/javascript" src="../static/js/nprogress.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <!-- Popper -->
+    <script type="text/javascript" src="../static/js/popper.min.js"></script>
+    <!-- ScrollUp -->
+    <script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
+    <!-- Elevate Zoom -->
+    <script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
+    <!-- jquery-ui-range-slider -->
+    <script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
+    <!-- jQuery Slim-Scroll -->
+    <script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
+    <!-- jQuery Resize-Select -->
+    <script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
+    <!-- jQuery Custom Mega Menu -->
+    <script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
+    <!-- jQuery Countdown -->
+    <script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
+    <!-- Main -->
+    <script type="text/javascript" src="../static/js/app.js"></script>
+
+    <script type="text/javascript" src="../static/js/cart.js"></script>
 </body>
 {% endblock %}

@@ -2,7 +2,7 @@
 
 {% load i18n %}
 {% load static %}
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}{% endblock %}
 
 {% block content %}
 
@@ -105,29 +105,19 @@
                               <i class="fas fa-chevron-down u-s-m-l-9"></i>
                           </a>
                           <ul class="g-dropdown" style="width:200px">
-                              <li>
-                                  <a href="{% url 'cart' %}">
-                                      <i class="fas fa-cog u-s-m-r-9"></i>
-                                      My Cart</a>
-                              </li>
-                              <li>
-                                  <a href="{% url 'wishlist' %}">
-                                      <i class="far fa-heart u-s-m-r-9"></i>
-                                      My Wishlist</a>
-                              </li>
-                              <li>
-                                  <a href="{% url 'checkout' %}">
-                                      <i class="far fa-check-circle u-s-m-r-9"></i>
-                                      Checkout</a>
-                              </li>
-                              <li>
-                                  <a href="{% url 'account' %}">
-                                      <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                      Login / Signup</a>
-                              </li>
+                            <li>
+                                <a href="{% url 'account_signup' %}">
+                                    <i class="far fa-check-circle u-s-m-r-9"></i>
+                                    Register</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'account_login' %}">
+                                    <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
+                                    Login </a>
+                            </li>
                           </ul>
                       </li>
-                      >
+                      
                       <li>
                           <a>ENG
                               <i class="fas fa-chevron-down u-s-m-l-9"></i>
@@ -204,8 +194,7 @@
                               <li>
                                   <a id="mini-cart-trigger">
                                       <i class="ion ion-md-basket"></i>
-                                      <span class="item-counter">4</span>
-                                      <span class="item-price">RM935.00</span>
+                                     
                                   </a>
                               </li>
                           </ul>
@@ -228,58 +217,7 @@
           </div>
       </div>
       <!-- Responsive-Buttons /- -->
-      <!-- Mini Cart -->
-      <div class="mini-cart-wrapper">
-          <div class="mini-cart">
-              <div class="mini-cart-header">
-                  YOUR CART
-                  <button type="button" class="button ion ion-md-close" id="mini-cart-close"></button>
-              </div>
-              <ul class="mini-cart-list">
-                  <li class="clearfix">
-                      <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                          <img src="{% static 'image/gear-443676_960_720.jpg' %}" alt="Product">
-                          <span class="mini-item-name">Partial Engine Assembly</span>
-                          <span class="mini-item-price">RM500.00</span>
-                          <span class="mini-item-quantity"> x 1 </span>
-                      </a>
-                  </li>
-                  <li class="clearfix">
-                      <a href="https://toyota.epc-data.com/rush/j210e/93285/engine/1101/">
-                          <img src="{% static 'gasket.jpg' %}" alt="Product">
-                          <span class="mini-item-name">Gasket</span>
-                          <span class="mini-item-price">RM55.00</span>
-                          <span class="mini-item-quantity"> x 1 </span>
-                      </a>
-                  </li>
-                  <li class="clearfix">
-                      <a href="{% url 'singleproduct' %}">
-                          <img src="{% static 'FRONT AXLE ARM & STEERING KNUCKLE.jpg' %}" alt="Product">
-                          <span class="mini-item-name">Front Axle Arm</span>
-                          <span class="mini-item-price">RM150.00</span>
-                          <span class="mini-item-quantity"> x 1 </span>
-                      </a>
-                  </li>
-                  <li class="clearfix">
-                      <a href="{% url 'singleproduct' %}">
-                          <img src="{% static 'HEADLAMP.jpg' %} " alt="Product">
-                          <span class="mini-item-name">Headlamp</span>
-                          <span class="mini-item-price">RM230.00</span>
-                          <span class="mini-item-quantity"> x 1 </span>
-                      </a>
-                  </li>
-              </ul>
-              <div class="mini-shop-total clearfix">
-                  <span class="mini-total-heading float-left">Total:</span>
-                  <span class="mini-total-price float-right">RM935.00</span>
-              </div>
-              <div class="mini-action-anchors">
-                  <a href="{% url 'cart' %}" class="cart-anchor">View Cart</a>
-                  <a href="{% url 'checkout' %}" class="checkout-anchor">Checkout</a>
-              </div>
-          </div>
-      </div>
-      <!-- Mini Cart /- -->
+    
 
 <!-- Header /- -->
 

@@ -1,0 +1,357 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family+Poppins:wght@300;400;500;600&display=swap');
+    /*PUBLIC*/
+    
+     :root {
+        --main-color: #cc0404;
+        --color-dark: #1D2231;
+        --text-grey: #8390A2;
+        --bg-color: rgba(207, 207, 207, 0);
+    }
+    
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+    }
+    /*SIDEBAR*/
+    
+    .sidebar {
+        width: 345px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: var(--main-color);
+        z-index: 100;
+        transition: width 300ms;
+    }
+    
+    .sidebar-brand {
+        height: 85px;
+        padding: 1rem 0rem 1rem 2rem;
+        color: #fff;
+    }
+    
+    .sidebar-brand span {
+        display: inline-block;
+        padding-right: 1rem;
+    }
+    
+    .sidebar-menu li {
+        width: 100%;
+        margin-bottom: 3rem;
+        padding-left: 5rem;
+    }
+    
+    .sidebar-menu a {
+        padding-left: 1rem;
+        display: block;
+        color: #fff;
+        font-size: 2rem;
+        text-decoration: none;
+    }
+    
+    .sidebar-menu a span:first-child {
+        font-size: 1.5rem;
+        padding-right: 1rem;
+    }
+    /*NAVIGATION TOGGLE*/
+    
+    #nav-toggle:checked+.sidebar {
+        width: 70px;
+    }
+    
+    #nav-toggle:checked+.sidebar .sidebar-brand,
+    #nav-toggle:checked+.sidebar li {
+        padding-left: 1rem;
+        text-align: center;
+    }
+    
+    #nav-toggle:checked+.sidebar li a {
+        padding-left: 0rem;
+    }
+    
+    #nav-toggle:checked+.sidebar .sidebar-brand h2 span:last-child,
+    #nav-toggle:checked+.sidebar li a span:last-child {
+        display: none;
+    }
+    
+    #nav-toggle:checked~.main-content {
+        margin-left: 70px;
+    }
+    
+    #nav-toggle:checked~.main-content header {
+        width: calc(100% - 70px);
+        left: 70px;
+    }
+    
+    #nav-toggle {
+        display: none;
+    }
+    
+    .sidebar-menu a.logout {
+        background: #717985;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-radius: 30px 0px 0px 30px;
+    }
+    /*MAIN*/
+    
+    .main-content {
+        transition: margin-left 300ms;
+        margin-left: 345px;
+    }
+    /*HEADER*/
+    
+    header {
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        left: 345px;
+        width: calc(100% - 345px);
+        top: 0;
+        z-index: 100;
+        transition: left 300ms;
+    }
+    
+    header h2 {
+        color: #222;
+    }
+    
+    header label span {
+        font-size: 1.7rem;
+        padding-right: 1rem;
+    }
+    /*MAIN*/
+    
+    main {
+        margin-top: 85px;
+        padding: 2rem 1.5rem;
+    }
+    
+    @media only screen and (max-width:1200px) {
+        .sidebar {
+            width: 80px;
+        }
+        .sidebar .sidebar-brand,
+        .sidebar li {
+            padding-left: 1rem;
+            text-align: center;
+        }
+        .sidebar .sidebar-brand h2 span:last-child,
+        .sidebar li a span:last-child {
+            display: none;
+        }
+        .main-content {
+            margin-left: 70px;
+        }
+        .main-content header {
+            width: calc(100% - 70px);
+            left: 80px;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .sidebar {
+            left: -100% !important;
+        }
+        header h2 {
+            display: flex;
+            align-items: center;
+        }
+        header h2 label {
+            display: inline-block;
+            background: var(--main-color);
+            padding-right: 0rem;
+            margin-right: 1rem;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center !important;
+        }
+        header h2 span {
+            text-align: center;
+            padding-right: 0rem;
+        }
+        header h2 {
+            font-size: 1.1rem;
+        }
+        .main-content {
+            width: 100%;
+            margin-left: 0rem;
+        }
+        header {
+            width: 100% !important;
+            left: 0 !important;
+        }
+        #nav-toggle:checked+.sidebar {
+            left: 0 !important;
+            z-index: 100;
+            width: 345px;
+        }
+        #nav-toggle:checked+.sidebar .sidebar-brand,
+        #nav-toggle:checked+.sidebar li {
+            padding-left: 2rem;
+            text-align: left;
+        }
+        #nav-toggle:checked+.sidebar li a {
+            padding-left: 1rem;
+        }
+        #nav-toggle:checked+.sidebar .sidebar-brand h2 span:last-child,
+        #nav-toggle:checked+.sidebar li a span:last-child {
+            display: inline;
+        }
+        #nav-toggle:checked~.main-content {
+            margin-left: 0rem !important;
+        }
+    }
+    
+    .home-btn {
+        background-color: DodgerBlue;
+        border: none;
+        color: white;
+        padding: 10px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        float: left;
+    }
+    
+    .home-btn:hover {
+        background-color: RoyalBlue;
+    }
+
+    
+</style>
+
+{% include 'base/adminstyle.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sparke Administration</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, macimum-scale=1"> {% include 'base/css5.html' %} {% include 'base/js5.html' %}
+</head>
+{% if user.is_authenticated and user.is_superuser%}
+
+<body>
+    <input type="checkbox" id="nav-toggle">
+
+    <!--SIDEBAR-->
+    <div class="sidebar">
+
+        <div class="sidebar-brand">
+            <h2><span class="las la-car-alt"></span> <span style="font-size: 25px;">Sparke Autoparts</span></h2>
+        </div>
+        <br>
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboards:dashboard' %}" class="dashboard"><span class="las la-igloo" style="font-size: 25px;"></span>
+                                <span>Dashboard</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'dealers:dealer_list' %}" class="dealers"><span class="las la-users" style="font-size: 25px;"></span>
+                                <span>Customers</span></a>
+                </li>
+                <li>
+                    <a href=" {% url 'suppliers:supplier_list' %} " class="suppliers"><span class="las la-clipboard-list" style="font-size: 25px;"></span>
+                                <span>Suppliers</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboards:markup_view' %} " class="markup"><span class="las la-comments-dollar" style="font-size: 25px;"></i></span>
+                                <span>Mark Up</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'dashboards:invoice_list' %}" class="invoice"><span class="las la-shopping-bag" style="font-size: 25px;"></span>
+                                <span>Invoice</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'edit_profile' %}" class="account"><span class="las la-user-circle" style="font-size: 25px;"></span>
+                                <span>Account</span></a>
+                </li>
+                <li>
+                    <a href="/logout" class="logout"><span class="las la-sign-out-alt" style="font-size: 25px;"></span>
+                                <span>Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!--HEADER-->
+    <div class="main-content">
+        <header>
+            <h2 class="title">
+                <label for="nav-toggle">
+                                <span style="font-size: 30px;" class="las la-bars"></span>
+                            </label> Admin Dashboard
+            </h2>
+        </header>
+        <!--content inside-->
+        <main>
+            {% block content %} {% endblock %}
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+{% else %}
+
+<style>
+    .login-here {
+        background-color: #eee;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        text-align: center;
+    }
+    
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    .text {
+        background-color: var(--main-color);
+        color: #eee;
+        font-size: 50px;
+        font-weight: bold;
+        margin: 0 auto;
+        width: 30%;
+        text-align: center;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradient 5s ease infinite;
+        height: 75px;
+    }
+</style>
+<div class="login-here">
+    <div class="text">SPARKE AUTOPARTS</div>
+    <h1>ADMINISTRATION DASHBOARD</h1><br>
+    <p style="font-size: 20px;">You are logged out. Login <a href="/login" style="text-decoration: underline;">here</a>.</p>
+</div>
+{% endif %}
+
+</html>

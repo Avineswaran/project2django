@@ -3,43 +3,76 @@
 
 
 <html>
-  <head>
-    <title>{% block head_title %}{% endblock %}</title>
-   
-   
-    {% block extra_head %}
-    {% endblock %}
-  </head>
-  <body>
-    {% block body %}
 
-    {% if messages %}
+<head>
+    <title>{% block head_title %}{% endblock %}</title>
+
+
+    {% block extra_head %} {% endblock %}
+</head>
+
+<body>
+
+    <!-- Main-Slider -->
+
+    <div class="default-height ph-item">
+        <div class="slider-main owl-carousel">
+            <div class="bg-image one">
+                <div class="slide-content slide-animation">
+
+                    <img src="{% static 'image/wallpaper3.jpg' %}" style="width:100%">
+                </div>
+            </div>
+
+            <div class="bg-image two">
+                <div class="slide-content slide-animation">
+
+                    <img src="{% static 'image/wallpaper4.jpg' %}" style="width:100%">
+                </div>
+            </div>
+
+            <div class="bg-image three">
+                <div class="slide-content slide-animation">
+
+                    <img src="{% static 'image/h3.jpg' %}" style="width:100%">
+                </div>
+            </div>
+            <div class="bg-image four">
+                <div class="slide-content slide-animation">
+
+                    <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    <!-- Main-Slider /- -->
+    {% block body %} {% if messages %}
     <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
+        <strong>Messages:</strong>
+        <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+        </ul>
     </div>
     {% endif %}
 
     <div>
-      <strong>Menu:</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
-        {% endif %}
-      </ul>
+        <strong>Menu:</strong>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            {% else %}
+            <li><a href="{% url 'customer_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
     </div>
-    {% block content %}
-    {% endblock %}
-    {% endblock %}
-    {% block extra_body %}
-    {% endblock %}
-  </body>
+    {% block content %} {% endblock %} {% endblock %} {% block extra_body %} {% endblock %}
+</body>
+
 </html>

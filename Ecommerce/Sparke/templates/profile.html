@@ -8,7 +8,8 @@
 {% block content %}
 
     <main class="content" style= "text-align: center;">
-
+        <h3><strong>Manage Account </strong></h3>
+        <br> <br>
        
         <form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}

@@ -1,9 +1,4 @@
-
-{% extends 'base2.html' %} 
-
-{% load static %}
-
-{% block content %}
+ {% extends 'base2.html' %} {% load static %} {% block content %}
 
 
 <!DOCTYPE html>
@@ -14,28 +9,28 @@
 
 
 
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>image </th>
-                
-                <th>Part Name</th>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+
+
+                <th><strong>Part Name</strong></th>
                 <th> Part No</th>
                 <th>Category</th>
                 <th>Year</th>
-                <th>Price</th>
+                <th>Price (RM)</th>
                 <th>Stock</th>
-              </tr>
-            </thead>
-            
-            <tbody>
-                
-            {% for part in parts %}  
-              <tr>
-                <td>{{part.partimage}}</td>
-               
-                <td>{{part.partName}}</td>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for part in parts %}
+            <tr>
+
+
+                <td><strong>{{part.partName}}</strong></td>
                 <td>{{part.partNo}}</td>
                 <td>{{part.partCategory}}</td>
                 <td>{{part.partYear}}</td>
@@ -43,32 +38,35 @@
                 <td>{{part.stock}}</td>
                 {% if part.image %}
                 <td>
-                    <img src="{{ part.image.url }}" alt="" class="prod-size"> 
+                    <img src="{{ part.image.url }}" alt="" class="prod-size">
                 </td>
-            {% else %}
+                {% else %}
                 <td>
                     <img src="{% static 'images/gasket.png' %}" alt="" class="prod-size">
                 </td>
-            {% endif %}
-            <td>
-                <button  data-part = {{part.id}}  data-action="add"  class="btn btn-success badge update-cart" href="{% url 'wishlist' %}" >Add</button>
-                <button  href="{% url 'singleproduct' %}"   class="btn btn-success badge update-cart">View</button>
-                
-            </td>
+                {% endif %}
+                <td>
+                    <button data-part="{{part.id}}" data-action="add" class="btn btn-success badge update-cart " href="{% url 'cart' %} ">Add</button>
+                    
+                   <!--<button href="{% url 'singleproduct' %} " class="btn btn-warning badge update-cart ">View</button> --> 
+                    
+
+                </td>
+            </tr>
+
+        </tbody>
+
         </tr>
-   
-</tbody>
-  
-     </tr>
-              {% endfor %} 
-            </tbody>
-        </table>	
-        </div>
-        <a class="btn btn-primary" style= "margin: 20px;" href="{% url 'cart' %}">Go to Cart</a>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<a class="btn btn-success " style=" float: right; margin:50px ; " href="{% url 'cart' %} ">Go to Cart</a>
 
 
 
 </body>
+
 </html>
 
 

@@ -9,6 +9,7 @@
 					
 					<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
 					<div id="shipping-info">
+						<br>
 						<hr>
 						<h3>Shipping Information</h3>
 						<hr>
@@ -49,36 +50,47 @@
                 </div>
                 <div class="u-s-m-b-13">
                     <input type="radio" class="radio-box" name="payment-method" id="credit-card-stripe">
-                    <label class="label-text" for="credit-card-stripe">Credit Card (Stripe)</label>
+                    <label class="label-text" for="credit-card-stripe">Credit Card </label>
                 </div>
                 <div class="u-s-m-b-13">
                     <input type="radio" class="radio-box" name="payment-method" id="paypal">
                     <label class="label-text" for="paypal">Paypal</label>
                 </div>
+				<div class="u-s-m-b-13">
+                    <input type="radio" class="radio-box" name="payment-method" id="onlinebanking">
+                    <label class="label-text" for="onlinebanking">Online Banking</label>
+                </div>
 			</div>
 			
 		</div>
+	
+		
+		
+
 
 		<div class="col-lg-6">
 			<div class="box-element">
-				
+				<br>	
+				<br>
+				<br>
 				<hr>
+				
 				<h3>Order Summary</h3>
 				<hr>
-				<strong>{{user.customer.name}}</strong>
+				<h3><strong>Name: {{user.customer.name}}</strong></h3>
 					
-					<strong>{{user.customer.phone}}</strong>
+				<h3><strong>Phone Number: {{user.customer.phone}}</strong></h3>
 				{% for item in items %}
 				<div class="cart-row">
 					
 					<div style="flex:2"><img class="row-image" src="{{item.product.imageURL}}"></div>
-					<div style="flex:2"><p>{{item.product.partName}}</p></div>
-					<div style="flex:1"><p>RM{{item.product.unitPrice|floatformat:2}}</p></div>
-					<div style="flex:1"><p>x{{item.quantity}}</p></div>
+					<div ><strong>{{item.product.partName}}</strong></div>
+					<div ><p>RM{{item.product.unitPrice|floatformat:2}}</p></div>
+					<div ><p>x{{item.quantity}}</p></div>
 				</div>
 				{% endfor %}
-				<th><h5 >Items: <strong>{{order.get_cart_items}}</strong></h5></th>
-						<th><h5>Total:<strong> RM{{order.get_cart_total|floatformat:2}}</strong></h5></th>
+				<th><h5 ><strong>Items: {{order.get_cart_items}}</strong></h5></th>
+						<th><h5><strong>Total: RM{{order.get_cart_total|floatformat:2}}</strong></h5></th>
 			</div>
 		</div>
 	</div>

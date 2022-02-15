@@ -20,3 +20,9 @@ def form_validation_error(form):
         for error in field.errors:
             msg += "%s: %s \\n" % (field.label if hasattr(field, 'label') else 'Error', error)
     return msg
+
+
+class LoginForm(forms.Form):
+    """user login form"""
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput())

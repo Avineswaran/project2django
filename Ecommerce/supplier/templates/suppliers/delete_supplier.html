@@ -1,0 +1,19 @@
+{% extends 'base5.html' %} {% block content %}
+<style>
+    .sidebar-menu a.suppliers {
+        background: #fff;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        color: var(--main-color);
+        border-radius: 30px 0px 0px 30px;
+    }
+</style>
+
+    <div style="text-align: center;">
+        <form action="." method="POST">{% csrf_token %}
+            <h1>Do you want to delete {{ object.supplierName }} from the suppliers list?</h1><br>
+            <p><input class="btn btn-danger" type="submit" value="Yes" /><a class="btn info" href="../">Cancel</a></p>
+        </form>
+    </div>
+
+{% endblock %}

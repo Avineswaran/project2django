@@ -1,5 +1,6 @@
 from django.db import connections, models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 
@@ -15,7 +16,8 @@ class Customer(models.Model):
     def __str__(self):
       return self.name
 
-
+    def get_absolute_url(self):
+        return reverse ("dealers:dealer_detail", kwargs={"id": self.id})
 
 class Part(models.Model):
     partNo= models.CharField(max_length=20)

@@ -16,19 +16,37 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from Sparke import views 
+from . import views as eview
 
+from .views import(
+    #Dashboard,
+    PasswordsChangeView,
+    UserEditView,
+    profile_success,
+    password_success,
+)
 
 urlpatterns = [
 
+    #admin stuff
+    path('', include("django.contrib.auth.urls")),
+    path('edit_profile/', UserEditView.as_view(), name='edit_profile'),
+    path('profile_success/', profile_success, name="profile_success"),
+    path('password/', PasswordsChangeView.as_view(), name='change_password'),
+    path('password_success/', password_success, name="password_success"),
 
- 
-    path('admin/', admin.site.urls),
+    path('dashboard/',include('dashboard.urls')),
+    path('dealer/',include('dealer.urls')),
+    path('supplier/',include('supplier.urls')),
+
+    path('admin/', admin.site.urls, name='admin'),
     path('',views.home, name='home' ),    
     path('home',views.home, name='home' ),
     path('home-html',views.homehtml, name='homehtml' ),
     path('account/',views.account, name='account' ),
     path('myaccount/',views.myaccount, name='myaccount' ),
-    path('login',views.login, name='login' ), 
+    path('admin_login/',views.login, name='admin_login' ),
+    path('customer_login/',views.LoginView.as_view(),name='customer_login'),
     path('signup',views.signup, name='signup' ), 
     path('seller',views.seller, name='seller' ), 
     path('about',views.about, name='about' ), 

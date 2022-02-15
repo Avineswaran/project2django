@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
+<!DOCTYPE html> {% load static %}
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <!--[if IE]>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>{% block title %}Sparke Autoparts - Online Automation Trading Management System{% endblock title %}</title>
-    
-    
+
+
     <!-- Standard Favicon -->
     <link href="favicon.ico" rel="shortcut icon">
     <!-- Base Google Font for Web-app -->
@@ -36,143 +36,142 @@
     <link rel="stylesheet" href="../static/css/bundle.css">
 
     <script type="text/javascript">
-      var user = '{{request.user}}'
-      function getToken(name) {
-		    var cookieValue = null;
-		    if (document.cookie && document.cookie !== '') {
-		        var cookies = document.cookie.split(';');
-		        for (var i = 0; i < cookies.length; i++) {
-		            var cookie = cookies[i].trim();
-		            // Does this cookie string begin with the name we want?
-		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-		                break;
-		            }
-		        }
-		    }
-		    return cookieValue;
-		}
-		var csrftoken = getToken('csrftoken')
+        var user = '{{request.user}}'
 
-		function getCookie(name) {
-		    // Split cookie string and get all individual name=value pairs in an array
-		    var cookieArr = document.cookie.split(";");
+        function getToken(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        var csrftoken = getToken('csrftoken')
 
-		    // Loop through the array elements
-		    for(var i = 0; i < cookieArr.length; i++) {
-		        var cookiePair = cookieArr[i].split("=");
+        function getCookie(name) {
+            // Split cookie string and get all individual name=value pairs in an array
+            var cookieArr = document.cookie.split(";");
 
-		        /* Removing whitespace at the beginning of the cookie name
-		        and compare it with the given string */
-		        if(name == cookiePair[0].trim()) {
-		            // Decode the cookie value and return
-		            return decodeURIComponent(cookiePair[1]);
-		        }
-		    }
+            // Loop through the array elements
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split("=");
 
-		    // Return null if not found
-		    return null;
-		}
-		var cart = JSON.parse(getCookie('cart'))
+                /* Removing whitespace at the beginning of the cookie name
+                and compare it with the given string */
+                if (name == cookiePair[0].trim()) {
+                    // Decode the cookie value and return
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
 
-		if (cart == undefined){
-			cart = {}
-			console.log('Cart Created!', cart)
-			document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
-		}
-		console.log('Cart:', cart)
-    </script> 
-  </head>
+            // Return null if not found
+            return null;
+        }
+        var cart = JSON.parse(getCookie('cart'))
+
+        if (cart == undefined) {
+            cart = {}
+            console.log('Cart Created!', cart)
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        }
+        console.log('Cart:', cart)
+    </script>
+</head>
 
 
-  <body>
+<body>
 
     <!-- app -->
-<div id="app">
-  <!-- Header -->
-  <header>
-      <!-- Top-Header -->
-      <div class="full-layer-outer-header">
-          <div class="container clearfix">
-              <nav>
-                  <ul class="primary-nav g-nav">
-                      <li>
-                          <a href="tel:+60123456789">
-                              <i class="fas fa-phone u-c-brand u-s-m-r-9"></i>
-                              Telephone:+60123456789</a>
-                      </li>
-                      <li>
-                          <a href="mailto:contact@domain.com">
-                              <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i>
-                              E-mail: contact@domain.com
-                          </a>
-                      </li>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <!-- Top-Header -->
+            <div class="full-layer-outer-header">
+                <div class="container clearfix">
+                    <nav>
+                        <ul class="primary-nav g-nav">
+                            <li>
+                                <a href="tel:+60123456789">
+                                    <i class="fas fa-phone u-c-brand u-s-m-r-9"></i> Telephone:+60123456789
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@domain.com">
+                                    <i class="fas fa-envelope u-c-brand u-s-m-r-9"></i> E-mail: contact@domain.com
+                                </a>
+                            </li>
 
-                      <li>
-                          <a href="{% url 'seller' %}">
+                            <li>
+                                <a href="{% url 'seller' %}">
                               
-                              Seller Center
+                            Admin
                           </a>
-                      </li>
-                  </ul>
-              </nav>
-              <nav>
-                  <ul class="secondary-nav g-nav">
-                      <li>
-                          <a>My Account
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav>
+                        <ul class="secondary-nav g-nav">
+                            <li>
+                                <a>My Account
                               <i class="fas fa-chevron-down u-s-m-l-9"></i>
                           </a>
-                          <ul class="g-dropdown" style="width:200px">
-                            
-                              <li>
-                                  <a href="{% url 'account_signup' %}">
-                                      <i class="far fa-check-circle u-s-m-r-9"></i>
-                                      Register</a>
-                              </li>
-                              <li>
-                                  <a href="{% url 'account_login' %}">
-                                      <i class="fas fa-sign-in-alt u-s-m-r-9"></i>
-                                      Login </a>
-                              </li>
-                          </ul>
-                      </li>
-                      
-                      <li>
-                          <a>ENG
+                                <ul class="g-dropdown" style="width:200px">
+
+                                    <li>
+                                        <a href="{% url 'account_signup' %}">
+                                            <i class="far fa-check-circle u-s-m-r-9"></i> Register
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'customer_login' %}">
+                                            <i class="fas fa-sign-in-alt u-s-m-r-9"></i> Login </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a>ENG
                               <i class="fas fa-chevron-down u-s-m-l-9"></i>
                           </a>
-                          <ul class="g-dropdown" style="width:70px">
-                              <li>
-                                  <a href="#" class="u-c-brand">ENG</a>
-                              </li>
-                              <li>
-                                  <a href="#">MALAY</a>
-                              </li>
-                          </ul>
-                  </ul>
-              </nav>
-          </div>
-      </div>
-      <!-- Top-Header /- -->
-      <!-- Mid-Header -->
-      <div class="full-layer-mid-header">
-          <div class="container">
-              <div class="row clearfix align-items-center">
-                  <div class="col-lg-3 col-md-9 col-sm-6">
-                      <div class="brand-logo text-lg-center">
-                          <a href="{% url 'home' %}">
-                              <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
-                          </a>
-                      </div>
-                  </div>
-                  <div class="col-lg-6 u-d-none-lg">
-                      <form class="form-searchbox" action="{% url 'PartTest' %}">
-                          <label class="sr-only" for="search-landscape">Search</label>
-                          <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
-                          <div class="select-box-position">
-                              <div class="select-box-wrapper select-hide">
-                                  <label class="sr-only" for="select-category">Choose parts Category</label>
-                                  <select class="select-box" id="select-category">
+                                <ul class="g-dropdown" style="width:70px">
+                                    <li>
+                                        <a href="#" class="u-c-brand">ENG</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">MALAY</a>
+                                    </li>
+                                </ul>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- Top-Header /- -->
+            <!-- Mid-Header -->
+            <div class="full-layer-mid-header">
+                <div class="container">
+                    <div class="row clearfix align-items-center">
+                        <div class="col-lg-3 col-md-9 col-sm-6">
+                            <div class="brand-logo text-lg-center">
+                                <a href="{% url 'home' %}">
+                                    <img src="{% static 'image/Logo2.png' %}" alt="Sparke Autoparts Logo" class="app-brand-logo"> <br>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 u-d-none-lg">
+                            <form class="form-searchbox" action="{% url 'PartTest' %}">
+                                <label class="sr-only" for="search-landscape">Search</label>
+                                <input id="search-landscape" type="text" class="text-field" placeholder="Search VIN Num / Part Number or Name">
+                                <div class="select-box-position">
+                                    <div class="select-box-wrapper select-hide">
+                                        <label class="sr-only" for="select-category">Choose parts Category</label>
+                                        <select class="select-box" id="select-category">
                                       <option selected="selected" value="{% url 'PartTest' %}">
                                           All
                                       </option>
@@ -192,165 +191,195 @@
                                       <option value="">Wheels
 
                                   </select>
-                              </div>
-                          </div>
-                          <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
-                      </form>
-                  </div>
-                  <div class="col-lg-3 col-md-3 col-sm-6">
-                      <nav>
-                          <ul class="mid-nav g-nav">
-                              <li class="u-d-none-lg">
-                                  <a href="{% url 'home' %}">
-                                      <i class="ion ion-md-home u-c-brand"></i>
-                                  </a>
-                              </li>
-                              <li class="u-d-none-lg">
-                                  <a href="{% url 'wishlist' %}">
-                                      <i class="far fa-heart"></i>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a id="mini-cart-trigger">
-                                      <i class="ion ion-md-basket">{{cartItems}}</i>
-                                
-                                  </a>
-                              </li>
-                          </ul>
-                      </nav>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Mid-Header /- -->
-      <!-- Responsive-Buttons -->
-      <div class="fixed-responsive-container">
-          <div class="fixed-responsive-wrapper">
-              <button type="button" class="button fas fa-search" id="responsive-search"></button>
-          </div>
-          <div class="fixed-responsive-wrapper">
-              <a href="{% url 'wishlist' %}">
-                  <i class="far fa-heart"></i>
-                  <span class="item-counter">{{cartItems}}</span>
-              </a>
-          </div>
-      </div>
-      <!-- Responsive-Buttons /- -->
-      
-      <!-- Bottom-Header -->
+                                    </div>
+                                </div>
+                                <button id="btn-search" type="submit" class="button button-primary fas fa-search"> </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6">
+                            <nav>
+                                <ul class="mid-nav g-nav">
+                                    <li class="u-d-none-lg">
+                                        <a href="{% url 'home' %}">
+                                            <i class="ion ion-md-home u-c-brand"></i>
+                                        </a>
+                                    </li>
+                                    <li class="u-d-none-lg">
+                                        <a href="{% url 'wishlist' %}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a id="mini-cart-trigger">
+                                            <i class="ion ion-md-basket">{{cartItems}}</i>
 
-      
-        
-      <div class="full-layer-bottom-header">
-          <div class="container">
-              <div class="row align-items-center">
-                  
-                  
-                  <div class="col-lg-9">
-                      <ul class="bottom-nav g-nav u-d-none-lg">
-                          <li>
-                              <a href="{% url 'home' %}">HOME
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mid-Header /- -->
+
+
+            <!-- Responsive-Buttons -->
+            <div class="fixed-responsive-container">
+                <div class="fixed-responsive-wrapper">
+                    <button type="button" class="button fas fa-search" id="responsive-search"></button>
+                </div>
+                <div class="fixed-responsive-wrapper">
+                    <a href="{% url 'wishlist' %}">
+                        <i class="far fa-heart"></i>
+                        <span class="item-counter">{{cartItems}}</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Responsive-Buttons /- -->
+
+            <!-- Bottom-Header -->
+
+
+
+            <div class="full-layer-bottom-header">
+                <div class="container">
+                    <div class="row align-items-center">
+
+
+                        <div class="col-lg-9">
+                            <ul class="bottom-nav g-nav u-d-none-lg">
+                                <li>
+                                    <a href="{% url 'home' %}">HOME
                                   
                               </a>
-                          </li>
-                          
-                         
-                          <li class="mega-position">
-                              <a>PAGES
+                                </li>
+
+
+                                <li class="mega-position">
+                                    <a>PAGES
                                   <i class="fas fa-chevron-down u-s-m-l-9"></i>
                               </a>
-                              <div class="mega-menu mega-3-colm">
-                                  <ul>
-                                      <li class="menu-title">Home & Static Pages</li>
-                                      <li>
-                                          <a href="{% url 'home' %}" class="u-c-brand">Home</a>
-                                      </li>
-                                      <li>
-                                          <a href="{% url 'about' %}">About</a>
-                                      </li>
-                                      <li>
-                                          <a href="{% url 'contact' %}">Contact</a>
-                                      </li>
-                                  
-                                     
-                                      <li>
-                                          <a href="{% url 'terms' %}">Terms & Conditions</a>
-                                      </li>
-                                  
-                                    
-                                    
-                                     
-                                  </ul>
-                                  <ul>
-                                      <li class="menu-title">Ecommerce Pages</li>
-                                     
-                                    
-                                      <li>
-                                          <a href="{% url 'checkout' %}">Checkout</a>
-                                      </li>
-                                      <li>
-                                          <a href="{% url 'account' %}">My Account</a>
-                                      </li>
-                                      <li>
-                                          <a href="{% url 'wishlist' %}">Wishlist</a>
-                                      </li>
-                                      <li>
-                                          <a href="{% url 'track' %}">Track your Order</a>
-                                      </li>
-                                     
-                                     
-                                      <li class="menu-title">
-                                          <a href="{% url 'cart' %}">Cart </a>
-                                      </li>
-                                     
-                                      <li class="menu-title">
-                                          <a href="{% url 'wishlist' %}">Wishlist </a>
-                                      </li>
-                                  </ul>
-                                  <ul>
-                                     
-                                      <li class="menu-title">My Account Variation</li>
-                                      <li>
-                                          <a href="{% url 'lost-password' %}">Lost Your Password ?</a>
-                                      </li>
-                                     
-                                      
-                                      <li class="menu-title">Custom Deals Page</li>
-                                      <li>
-                                          <a href="{% url 'custom' %}">Custom Deal Page</a>
-                                      </li>
-                                  </ul>
-                              </div>
-                          </li>
-                         
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!-- Bottom-Header /- -->
-  </header>
-  <!-- Header /- -->
-  
-  <br><br>
+                                    <div class="mega-menu mega-3-colm">
+                                        <ul>
+                                            <li class="menu-title">Home & Static Pages</li>
+                                            <li>
+                                                <a href="{% url 'home' %}" class="u-c-brand">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'about' %}">About</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'contact' %}">Contact</a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="{% url 'terms' %}">Terms & Conditions</a>
+                                            </li>
 
 
 
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
+
+                                        </ul>
+                                        <ul>
+                                            <li class="menu-title">Ecommerce Pages</li>
+
+
+                                            <li>
+                                                <a href="{% url 'checkout' %}">Checkout</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'account' %}">My Account</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'wishlist' %}">Wishlist</a>
+                                            </li>
+                                            <li>
+                                                <a href="{% url 'track' %}">Track your Order</a>
+                                            </li>
+
+
+                                            <li class="menu-title">
+                                                <a href="{% url 'cart' %}">Cart </a>
+                                            </li>
+
+                                            <li class="menu-title">
+                                                <a href="{% url 'wishlist' %}">Wishlist </a>
+                                            </li>
+                                        </ul>
+                                        <ul>
+
+                                            <li class="menu-title">My Account Variation</li>
+                                            <li>
+                                                <a href="{% url 'lost-password' %}">Lost Your Password ?</a>
+                                            </li>
+
+
+                                            <li class="menu-title">Custom Deals Page</li>
+                                            <li>
+                                                <a href="{% url 'custom' %}">Custom Deal Page</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom-Header /- -->
+        </header>
+        <!-- Header /- -->
+        <!-- Main-Slider -->
+
+        <div class="default-height ph-item">
+            <div class="slider-main owl-carousel">
+                <div class="bg-image one">
+                    <div class="slide-content slide-animation">
+
+                        <img src="{% static 'image/wallpaper3.jpg' %}" style="width:100%">
+                    </div>
+                </div>
+
+                <div class="bg-image two">
+                    <div class="slide-content slide-animation">
+
+                        <img src="{% static 'image/wallpaper4.jpg' %}" style="width:100%">
+                    </div>
+                </div>
+
+                <div class="bg-image three">
+                    <div class="slide-content slide-animation">
+
+                        <img src="{% static 'image/h3.jpg' %}" style="width:100%">
+                    </div>
+                </div>
+                <div class="bg-image four">
+                    <div class="slide-content slide-animation">
+
+                        <img src="{% static 'image/hd4.jpg' %}" style="width:100%">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
     </div>
-    {% endif %}
+    <!-- Main-Slider /- -->
 
-   
-    {% block content %}   
-    {% endblock %}   
-   <!-- Site-Priorities -->
+    <br><br> {% if messages %}
+    <div>
+        <strong>Messages:</strong>
+        <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %} {% block content %} {% endblock %}
+    <!-- Site-Priorities -->
     <section class="app-priority">
         <div class="container">
             <div class="priority-wrapper u-s-p-b-80">
@@ -409,12 +438,12 @@
         <div class="container">
             <!-- Outer-Footer -->
             <div class="outer-footer-wrapper u-s-p-y-80">
-                
+
                 <h1>
-                    To order the Car Parts Customers 
+                    To order the Car Parts Customers
                 </h1>
                 <h4>
-                    Register and Login 
+                    Register and Login
                 </h4>
                 <form class="newsletter-form">
                     <label class="sr-only" for="newsletter-field">Enter your Email</label>
@@ -479,8 +508,8 @@
                             <h6>Address</h6>
                             <ul>
                                 <li>
-                                    <a href= "https://www.google.com/maps/dir/3.0038222,101.7182172/PKT+Logistics+Group+Sdn+Bhd,+One+Logistics+Hub,+The+Ship,+No.+1,+Persiaran+Sungai+Hampar,+Section+32,+40460+Shah+Alam,+Selangor/@3.0204717,101.4778602,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc52723437c4e3:0xf2918f62fcce3b9a!2m2!1d101.5044873!2d2.9883034">
-                                        
+                                    <a href="https://www.google.com/maps/dir/3.0038222,101.7182172/PKT+Logistics+Group+Sdn+Bhd,+One+Logistics+Hub,+The+Ship,+No.+1,+Persiaran+Sungai+Hampar,+Section+32,+40460+Shah+Alam,+Selangor/@3.0204717,101.4778602,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x31cc52723437c4e3:0xf2918f62fcce3b9a!2m2!1d101.5044873!2d2.9883034">
+
                                     </a>
                                     <i class="fas fa-location-arrow u-s-m-r-9"></i>
                                     <span>One Logistics Hub, No.1, Persiaran Sungai Hampar, Section 32, 40460 Shah Alam, Selangor</span>
@@ -560,23 +589,19 @@
     </div>
     <!-- Dummy Selectbox /- -->
 
- 
-    
-</div>
-
-<!-- NoScript -->
-
-<style>
-form.form-searchbox {
-    width: 80%;
-    margin-left: 100px;
-}
 
 
+    </div>
 
+    <!-- NoScript -->
 
-</style>
-<noscript>
+    <style>
+        form.form-searchbox {
+            width: 80%;
+            margin-left: 100px;
+        }
+    </style>
+    <noscript>
     <div class="app-issue">
         <div class="vertical-center">
             <div class="text-center">
@@ -586,71 +611,72 @@ form.form-searchbox {
         </div>
     </div>
 </noscript>
-<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<script>
-window.ga = function() {
-    ga.q.push(arguments)
-};
-ga.q = [];
-ga.l = +new Date;
-ga('create', 'UA-XXXXX-Y', 'auto');
-ga('send', 'pageview')
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function() {
+            ga.q.push(arguments)
+        };
+        ga.q = [];
+        ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview')
 
 
-var slideIndex = 0;
-showSlides();
+        var slideIndex = 0;
+        showSlides();
 
-function showSlides() {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-}
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+    <!-- Modernizr-JS -->
+    <script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
+    <!-- NProgress -->
+    <script type="text/javascript" src="../static/js/nprogress.min.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <!-- Popper -->
+    <script type="text/javascript" src="../static/js/popper.min.js"></script>
+    <!-- ScrollUp -->
+    <script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
+    <!-- Elevate Zoom -->
+    <script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
+    <!-- jquery-ui-range-slider -->
+    <script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
+    <!-- jQuery Slim-Scroll -->
+    <script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
+    <!-- jQuery Resize-Select -->
+    <script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
+    <!-- jQuery Custom Mega Menu -->
+    <script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
+    <!-- jQuery Countdown -->
+    <script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
+    <!-- Owl Carousel -->
+    <script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
+    <!-- Main -->
+    <script type="text/javascript" src="../static/js/app.js"></script>
 
-
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async defer></script>
-<!-- Modernizr-JS -->
-<script type="text/javascript" src="../static/js/vendor/modernizr-custom.min.js"></script>
-<!-- NProgress -->
-<script type="text/javascript" src="../static/js/nprogress.min.js"></script>
-<!-- jQuery -->
-<script type="text/javascript" src="../static/js/jquery.min.js"></script>
-<!-- Bootstrap JS -->
-<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
-<!-- Popper -->
-<script type="text/javascript" src="../static/js/popper.min.js"></script>
-<!-- ScrollUp -->
-<script type="text/javascript" src="../static/js/jquery.scrollUp.min.js"></script>
-<!-- Elevate Zoom -->
-<script type="text/javascript" src="../static/js/jquery.elevatezoom.min.js"></script>
-<!-- jquery-ui-range-slider -->
-<script type="text/javascript" src="../static/js/jquery-ui.range-slider.min.js"></script>
-<!-- jQuery Slim-Scroll -->
-<script type="text/javascript" src="../static/js/jquery.slimscroll.min.js"></script>
-<!-- jQuery Resize-Select -->
-<script type="text/javascript" src="../static/js/jquery.resize-select.min.js"></script>
-<!-- jQuery Custom Mega Menu -->
-<script type="text/javascript" src="../static/js/jquery.custom-megamenu.min.js"></script>
-<!-- jQuery Countdown -->
-<script type="text/javascript" src="../static/js/jquery.custom-countdown.min.js"></script>
-<!-- Owl Carousel -->
-<script type="text/javascript" src="../static/js/owl.carousel.min.js"></script>
-<!-- Main -->
-<script type="text/javascript" src="../static/js/app.js"></script>
-
-<script type="text/javascript" src="../static/js/cart.js"></script>
+    <script type="text/javascript" src="../static/js/cart.js"></script>
 
 
 </body>
+
 </html>

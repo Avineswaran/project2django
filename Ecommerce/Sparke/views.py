@@ -1,14 +1,15 @@
 from multiprocessing import context
 from re import template
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm 
 from django.shortcuts import render,redirect 
 from django.http.response import HttpResponse
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout 
 from django.contrib.auth.views import LoginView
-from .forms import CustomerUpdateForm
+from .forms import CustomerUpdateForm , LoginForm
 from django.urls import reverse_lazy
 from .utils import *
 import datetime
+from django.views.generic.edit import FormView
 
 from .models import  Customer, Part, Order, OrderItem 
 from django.http import JsonResponse
@@ -142,8 +143,35 @@ def homehtml(request):
 def singleproduct(request):
     return render(request, "singleproduct.html")
 
-def login(request):
+def admin_login(request):
     return render(request, "login.html")
+
+class LoginView(FormView):
+    """login view"""
+
+    form_class = LoginForm
+    template_name = 'registration/login1.html'
+
+    def form_valid(self, form):
+        """ process user login"""
+        credentials = form.cleaned_data
+
+        user = authenticate(username=credentials['username'],
+                            password=credentials['password'])
+
+        if user is not None:
+            login(self.request, user)
+            if user.is_authenticated:
+                return redirect('myaccount')
+
+        else:
+            messages.add_message(self.request, messages.INFO, 'Wrong credentials\
+                                please try again')
+            return redirect('customer_login')
+def customer_login(request):
+    form = LoginForm(request.POST)
+        
+    return render(request,"registration/login1.html",{'form':form})
 
 
 def signup(request):
@@ -186,7 +214,12 @@ def PartTest(request):
     order = data['order']
     items = data['items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems,'parts' : parts}
+    context = {
+        'items':items, 
+        'order':order, 
+        'cartItems':cartItems,
+        'parts' : parts
+    }
     return render(request, 'PartTest.html', context)
 
 
@@ -199,6 +232,7 @@ def cart(request):
 
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
 	return render(request, 'cart.html', context)
+
 
 
 
@@ -284,3 +318,9 @@ def processOrder(request):
 		)
 
 	return JsonResponse('Payment submitted..', safe=False)
+
+def PartView(request):
+    part = request.part 
+    print(part) 
+    part_ = Part.objects.get(id=part)
+    return render(request,"add html file here",{'part':part_})
